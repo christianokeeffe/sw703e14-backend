@@ -1,15 +1,24 @@
 <?php
-require 'Slim/Slim.php';
-\Slim\Slim::registerAutoloader();
+$f3 = require('fatfree/base.php');
+
+require_once "controller/ApplianceController.class.php";
+
+$f3->route('GET /',
+    function() {
+        echo 'Hello, world!';
+    }
+);
+
+$f3->route('GET /appliance/@id/@lang',
+    function($f3) {
+        include "dbconnect.php";
+        $applianceController = new ApplianceController($link);
+
+        echo "Found: ";
+        echo $applianceController->getAppliance($f3->get('PARAMS.id'), $f3->get('PARAMS.lang'))->name;
+    }
+);
 
 
-$app = new \Slim\Slim();
-
-
-// GET route
-$app->get('/hello/:name/:lastname', function ($name, $lastname) {
-    echo json_encode("Hello, $name, $lastname");
-});
-
-
-$app->run();
+$f3->run();
+?>
