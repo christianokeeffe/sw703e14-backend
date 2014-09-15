@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Vært: 127.0.0.1
--- Genereringstid: 15. 09 2014 kl. 11:40:24
+-- Genereringstid: 15. 09 2014 kl. 13:14:04
 -- Serverversion: 5.6.16
 -- PHP-version: 5.5.11
 
@@ -23,20 +23,20 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur-dump for tabellen `applications`
+-- Struktur-dump for tabellen `appliances`
 --
 
-CREATE TABLE IF NOT EXISTS `applications` (
+CREATE TABLE IF NOT EXISTS `appliances` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `name` int(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Data dump for tabellen `applications`
+-- Data dump for tabellen `appliances`
 --
 
-INSERT INTO `applications` (`id`, `name`) VALUES
+INSERT INTO `appliances` (`id`, `name`) VALUES
 (1, 1);
 
 -- --------------------------------------------------------
@@ -58,6 +58,19 @@ CREATE TABLE IF NOT EXISTS `translation` (
 
 INSERT INTO `translation` (`id`, `en`, `da`) VALUES
 (1, 'Car', 'Bil');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur-dump for tabellen `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `username` int(99) NOT NULL,
+  `password` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
