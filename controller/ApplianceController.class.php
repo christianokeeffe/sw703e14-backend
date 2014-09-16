@@ -14,4 +14,10 @@ class ApplianceController {
         $appliance = new ApplianceModel($this->db);
         return $appliance->getAppliance($id, $lang);
     }
+
+    function getAppliances($lang)
+    {
+        $appliance = new ApplianceModel($this->db);
+        return $appliance->getAppliances($lang);
+    }
 } 

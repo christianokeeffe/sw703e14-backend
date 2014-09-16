@@ -11,16 +11,20 @@ class ApplianceModel {
 
     function getAppliance($id, $lang)
     {
-        $query = "SELECT $lang FROM appliances NATURAL JOIN translation WHERE id =  $id" or die("Error in the consult.." . mysqli_error($this->db));
+        $result = $this->db->exec("SELECT $lang FROM appliances NATURAL JOIN translation WHERE id =  $id");
+        return new Appliance($id, $result[0][$lang]);
+    }
 
-        //execute the query.
-        $result = $this->db->query($query);
+    function getAppliances($lang)
+    {
+        $results = $this->db->exec("SELECT id, $lang FROM appliances NATURAL JOIN translation");
 
-        while($row = mysqli_fetch_array($result))
+        $appliances = array();
+        foreach($results as $result)
         {
-            $appliance = new Appliance($id, $row[$lang]);
-            return $appliance;
+            $appliances[count($appliances)] = new Appliance($result["id"], $result[$lang]);
         }
 
+        return $appliances;
     }
 } 
