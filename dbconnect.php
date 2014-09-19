@@ -1,7 +1,5 @@
 <?php
-$link=new DB\SQL(
-    'mysql:host=localhost;port=3306;dbname=smartgrid',
-    'smartuser',
-    '1234'
-);
+$f3->set('dbuser',"smartuser");
+$f3->set('dbpass',"1234");
+$f3->set('db',"smartgrid");
 ?>

@@ -1,20 +1,18 @@
 <?php
 $f3 = require('fatfree/base.php');
 $f3->config('app/config.ini');
+include "app/config.php";
 
 $f3->route('GET /',
     function($f3) {
         $template=new Template;
         echo $template->render('view/templates/index.htm');
-        // Above lines can be written as:
-        // echo Template::instance()->render('appliance.htm');
     }
 );
 
 $f3->route('POST /appliance/@id',
     function($f3) {
-        require_once "dbconnect.php";
-        $auth = new Controller();
+        $auth = new BaseController($f3);
         $auth->beforeroute($f3);
         include "view/applianceView.php";
     }
@@ -22,11 +20,11 @@ $f3->route('POST /appliance/@id',
 
 $f3->route('POST /appliances',
     function($f3) {
-        require_once "dbconnect.php";
+        $auth = new BaseController($f3);
+        $auth->beforeroute($f3);
         include "view/appliancesView.php";
     }
 );
-
 
 $f3->run();
 ?>

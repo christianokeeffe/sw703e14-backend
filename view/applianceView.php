@@ -1,6 +1,6 @@
 <?php
 require_once "controller/ApplianceController.class.php";
-$applianceController = new ApplianceController($link);
+$applianceController = new ApplianceController($f3);
 
 $json_decoded = json_decode($f3->get('BODY'), true);
 

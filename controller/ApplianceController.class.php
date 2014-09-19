@@ -1,13 +1,8 @@
 <?php
 require_once "/model/ApplianceModel.class.php";
+require_once "BaseController.php";
 
-class ApplianceController {
-    var $db;
-
-    function __construct($db_link)
-    {
-        $this->db = $db_link;
-    }
+class ApplianceController extends BaseController {
 
     function getAppliance($id, $lang = 'en')
     {

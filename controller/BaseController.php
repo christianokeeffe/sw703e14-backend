@@ -1,12 +1,22 @@
 <?php
-require_once "/controller/ApiAuth.class.php";
-//! Base controller
-class Controller {
+require_once "ApiAuth.class.php";
 
-	//! HTTP route pre-processor
-	function beforeroute($f3) {
-        include "dbconnect.php";
-        $authController = new ApiAuth($link);
+class BaseController {
+    protected $db;
+    protected $f3;
+
+    //! Instantiate class
+    function __construct($f3) {
+        $this->f3 = $f3;
+        $this->db=new DB\SQL(
+            'mysql:host=localhost;port=3306;dbname=' . $f3->get('db'),
+            $f3->get('dbuser'),
+            $f3->get('dbpass')
+        );
+    }
+
+    function beforeroute($f3) {
+        $authController = new ApiAuth($this->db);
 
 
         $request = $f3->get('HEADERS');
@@ -25,6 +35,5 @@ class Controller {
             echo "ERROR: 401 Unauthorized";
             die();
         }
-	}
-
-}
+    }
+} 

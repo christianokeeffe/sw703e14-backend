@@ -4,9 +4,9 @@ require_once "/model/metadata/Appliance.class.php";
 class ApplianceModel {
     var $db;
 
-    function __construct($db_link)
+    function __construct($db)
     {
-        $this->db = $db_link;
+        $this->db = $db;
     }
 
     function getAppliance($id, $lang)
@@ -17,6 +17,7 @@ class ApplianceModel {
 
     function getAppliances($lang)
     {
+
         $results = $this->db->exec("SELECT id, $lang FROM appliances NATURAL JOIN translation");
 
         $appliances = array();
