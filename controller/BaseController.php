@@ -1,5 +1,5 @@
 <?php
-require_once "ApiAuth.class.php";
+require_once "ApiAuthNew.class.php";
 
 class BaseController {
     protected $db;
