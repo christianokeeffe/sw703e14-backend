@@ -2,5 +2,14 @@
 require_once "controller/ApplianceController.class.php";
 $applianceController = new ApplianceController($link);
 
-echo json_encode($applianceController->getAppliances($f3->get('PARAMS.lang')), JSON_UNESCAPED_UNICODE);
+$json_decoded = json_decode($f3->get('BODY'), true);
+
+if(isset($json_decoded["language"]))
+{
+    echo json_encode($applianceController->getAppliances($json_decoded["language"]), JSON_UNESCAPED_UNICODE);
+}
+else
+{
+    echo json_encode($applianceController->getAppliances(), JSON_UNESCAPED_UNICODE);
+}
 ?>

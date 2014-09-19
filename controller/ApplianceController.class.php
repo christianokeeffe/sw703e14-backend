@@ -9,13 +9,13 @@ class ApplianceController {
         $this->db = $db_link;
     }
 
-    function getAppliance($id, $lang)
+    function getAppliance($id, $lang = 'en')
     {
         $appliance = new ApplianceModel($this->db);
         return $appliance->getAppliance($id, $lang);
     }
 
-    function getAppliances($lang)
+    function getAppliances($lang = 'en')
     {
         $appliance = new ApplianceModel($this->db);
         return $appliance->getAppliances($lang);

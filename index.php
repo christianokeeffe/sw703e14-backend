@@ -11,7 +11,7 @@ $f3->route('GET /',
     }
 );
 
-$f3->route('POST /appliance/@id/@lang',
+$f3->route('POST /appliance/@id',
     function($f3) {
         require_once "dbconnect.php";
         $auth = new Controller();
@@ -20,7 +20,7 @@ $f3->route('POST /appliance/@id/@lang',
     }
 );
 
-$f3->route('GET /appliances/@lang',
+$f3->route('POST /appliances',
     function($f3) {
         require_once "dbconnect.php";
         include "view/appliancesView.php";
