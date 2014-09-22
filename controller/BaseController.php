@@ -23,6 +23,12 @@ class BaseController {
 
         if(!isset($request["X-Public"]) || !isset($request["X-Hash"]))
         {
+            if($f3->get('DEBUG') == 2)
+            {
+                echo "request:<br />";
+                var_dump($request);
+                echo "<br />";
+            }
             header("HTTP/1.0 400 Bad Request");
             echo "ERROR: 400 Bad Request";
             die();
