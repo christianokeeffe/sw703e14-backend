@@ -46,6 +46,12 @@ class BaseController {
         }
         else
         {
+            if($f3->get('DEBUG') == 2)
+            {
+                echo "x-hash: ";
+                var_dump($contentHash);
+                echo "<br />";
+            }
             header("HTTP/1.0 401 Unauthorized");
             echo "ERROR: 401 Unauthorized";
             die();
