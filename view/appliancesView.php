@@ -4,9 +4,11 @@ $applianceController = new ApplianceController($f3);
 
 $json_decoded = json_decode($f3->get('BODY'), true);
 
-if(isset($json_decoded["language"]))
+$parameters = json_decode($json_decoded["request"], true);
+
+if(isset($parameters["language"]))
 {
-    echo json_encode($applianceController->getAppliances($json_decoded["language"]), JSON_UNESCAPED_UNICODE);
+    echo json_encode($applianceController->getAppliances($parameters["language"]), JSON_UNESCAPED_UNICODE);
 }
 else
 {

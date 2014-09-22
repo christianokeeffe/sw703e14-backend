@@ -1,9 +1,9 @@
 <?php
 $publicHash = 'a2105103cd48b1a8601486fc52d8bb43a1156a49b2f36f1d28ed177d0203ba99';
-$privateHash = 'c90adb0a3a6f086506s2a639f5ad54f113f559031a658d503903ec48ced13078f';
+$privateHash = 'c90adb0a3a6f0865062a639f5ad54f113f559031a658d503903ec48ced13078f';
 
 $request = json_encode(array(
-    'language' => 'en'
+    'language' => 'da'
 ));
 
 $hash = hash_hmac('sha256', $request, $privateHash);
@@ -14,7 +14,7 @@ $content    = json_encode(array(
     'requestHash' => $hash
 ));
 
-$ch = curl_init('http://127.0.0.1/appliances');
+$ch = curl_init('http://127.0.0.1/appliance/1');
 curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
 curl_setopt($ch,CURLOPT_POSTFIELDS,$content);
 
