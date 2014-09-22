@@ -20,6 +20,13 @@ class BaseController {
 
 
         $request = $f3->get('HEADERS');
+
+        if(!isset($request["X-Public"]) || !isset($request["X-Hash"]))
+        {
+            header("HTTP/1.0 400 Bad Request");
+            echo "ERROR: 400 Bad Request";
+            die();
+        }
         $publicHash  = $request["X-Public"];
         $contentHash = $request["X-Hash"];
 
