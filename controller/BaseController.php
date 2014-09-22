@@ -26,9 +26,11 @@ class BaseController {
         {
             if($f3->get('DEBUG') == 2)
             {
-                echo "request:<br />";
+                echo "<b>REQUEST</b><br />";
                 var_dump($request);
                 echo "<br />";
+                echo "<b></b>BODY: </b>";
+                var_dump($f3->get('BODY'));
             }
             header("HTTP/1.0 400 Bad Request");
             echo "ERROR: 400 Bad Request";
