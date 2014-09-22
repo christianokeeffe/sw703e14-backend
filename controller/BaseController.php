@@ -19,9 +19,9 @@ class BaseController {
         $authController = new ApiAuth($this->db);
 
 
-        $request = $f3->get('HEADERS');
+        $request = $f3->get('BODY');
 
-
+/*
         if(!isset($request["X-Public"]) || !isset($request["X-Hash"]))
         {
             if($f3->get('DEBUG') == 2)
@@ -41,8 +41,9 @@ class BaseController {
         $contentHash = $request["X-Hash"];
 
         $content     = $f3->get('BODY');
+*/
 
-        if ($authController->auth($publicHash, $content, $contentHash))
+        if ($authController->auth($request))
         {
             header("HTTP/1.1 200 OK");
         }
@@ -50,13 +51,14 @@ class BaseController {
         {
             if($f3->get('DEBUG') == 2)
             {
-                echo "x-hash: ";
-                var_dump($contentHash);
+                echo "request: ";
+                var_dump($request);
                 echo "<br />";
             }
             header("HTTP/1.0 401 Unauthorized");
             echo "ERROR: 401 Unauthorized";
             die();
         }
+
     }
 } 
