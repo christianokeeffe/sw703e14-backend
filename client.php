@@ -26,6 +26,7 @@ $session = json_decode($result)->data;
 
 //---------------------------------------------------
 
+/* CuRL POST
 $request = json_encode(array(
     'language' => 'da'
 ));
@@ -46,4 +47,24 @@ curl_setopt($ch,CURLOPT_POSTFIELDS,$content);
 $result = curl_exec($ch);
 curl_close($ch);
 var_dump($result);
+*/
+
+//CURL GET
+
+// create curl resource
+$ch = curl_init();
+
+// set url
+curl_setopt($ch, CURLOPT_URL, "http://127.0.0.1/appliances/" . $session);
+
+//return the transfer as a string
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+// $output contains the output string
+$output = curl_exec($ch);
+
+// close curl resource to free up system resources
+curl_close($ch);
+
+var_dump($output);
 ?>

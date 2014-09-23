@@ -44,6 +44,21 @@ class ApiAuth extends BaseController {
         }
     }
 
+    function isValidSession($sessionKey)
+    {
+        $authModel = new AuthModel($this->db);
+        $public_key = $authModel->validate($sessionKey);
+
+        if($public_key == null)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
     function provideSession($api_key)
     {
         $authModel = new AuthModel($this->db);

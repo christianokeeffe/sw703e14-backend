@@ -2,20 +2,10 @@
 require_once "controller/ApplianceController.class.php";
 $applianceController = new ApplianceController($f3);
 
-$json_decoded = json_decode($f3->get('BODY'), true);
 
-$parameters = json_decode($json_decoded["request"], true);
+$session = $f3->get('PARAMS.session');
 
-if(isset($parameters["language"]))
-{
-    echo json_encode(array(
-        'data' => $applianceController->getAppliances($parameters["language"])
-    ));
-}
-else
-{
-    echo json_encode(array(
-        'data' => $applianceController->getAppliances()
-    ));
-}
+echo json_encode(array(
+    'data' => $applianceController->getAppliances()
+));
 ?>

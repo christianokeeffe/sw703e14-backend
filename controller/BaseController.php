@@ -15,7 +15,7 @@ class BaseController {
         );
     }
 
-    function beforeroute($f3) {
+    function beforeroutePOST($f3) {
 
         $authController = new ApiAuth($f3);
 
@@ -33,6 +33,25 @@ class BaseController {
                 var_dump($request);
                 echo "<br />";
             }
+            header("HTTP/1.0 401 Unauthorized");
+            echo "ERROR: 401 Unauthorized";
+            die();
+        }
+
+    }
+
+    function beforerouteGET($f3) {
+
+        $authController = new ApiAuth($f3);
+
+        $session = $f3->get('PARAMS.session');
+
+        if ($authController->isValidSession($session))
+        {
+            header("HTTP/1.1 200 OK");
+        }
+        else
+        {
             header("HTTP/1.0 401 Unauthorized");
             echo "ERROR: 401 Unauthorized";
             die();

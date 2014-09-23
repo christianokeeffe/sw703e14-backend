@@ -13,15 +13,15 @@ $f3->route('GET /',
 $f3->route('POST /appliance/@id',
     function($f3) {
         $auth = new BaseController($f3);
-        $auth->beforeroute($f3);
+        $auth->beforeroutePOST($f3);
         include "view/applianceView.php";
     }
 );
 
-$f3->route('POST /appliances',
+$f3->route('GET /appliances/@session',
     function($f3) {
         $auth = new BaseController($f3);
-        $auth->beforeroute($f3);
+        $auth->beforerouteGET($f3);
         include "view/appliancesView.php";
     }
 );
