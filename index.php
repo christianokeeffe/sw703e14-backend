@@ -10,6 +10,7 @@ $f3->route('GET /',
     }
 );
 
+
 $f3->route('GET /appliance/@id/@session',
     function($f3) {
         $auth = new BaseController($f3);

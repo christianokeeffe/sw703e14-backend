@@ -1,19 +1,16 @@
 <?php
 require_once "controller/ApplianceController.class.php";
+include_once "viewHelper.php";
 $applianceController = new ApplianceController($f3);
 
 $lang = $f3->get('PARAMS.lang');
 
 if(!empty($lang))
 {
-    echo json_encode(array(
-        'data' => $applianceController->getAppliances($lang)
-    ));
+    echo prepareResponse("200", "200 OK", $applianceController->getAppliances($lang));
 }
 else
 {
-    echo json_encode(array(
-        'data' => $applianceController->getAppliances()
-    ));
+    echo prepareResponse("200", "200 OK", $applianceController->getAppliances());
 }
 ?>
