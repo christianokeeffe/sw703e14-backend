@@ -57,7 +57,7 @@ $ch = curl_init();
 
 
 // set url
-curl_setopt($ch, CURLOPT_URL, "http://127.0.0.1/appliances/da/" . $sessionKey);
+curl_setopt($ch, CURLOPT_URL, "http://127.0.0.1/appliance/1/da/" . $sessionKey);
 
 //return the transfer as a string
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

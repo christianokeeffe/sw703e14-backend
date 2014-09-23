@@ -10,10 +10,18 @@ $f3->route('GET /',
     }
 );
 
-$f3->route('POST /appliance/@id',
+$f3->route('GET /appliance/@id/@session',
     function($f3) {
         $auth = new BaseController($f3);
-        $auth->beforeroutePOST($f3);
+        $auth->beforerouteGET($f3);
+        include "view/applianceView.php";
+    }
+);
+
+$f3->route('GET /appliance/@id/@lang/@session',
+    function($f3) {
+        $auth = new BaseController($f3);
+        $auth->beforerouteGET($f3);
         include "view/applianceView.php";
     }
 );
