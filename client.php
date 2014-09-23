@@ -23,6 +23,7 @@ curl_close($ch);
 
 $session = json_decode($result)->data;
 
+$sessionKey = json_decode($session)->session;
 
 //---------------------------------------------------
 
@@ -54,8 +55,9 @@ var_dump($result);
 // create curl resource
 $ch = curl_init();
 
+
 // set url
-curl_setopt($ch, CURLOPT_URL, "http://127.0.0.1/appliances/da/" . $session);
+curl_setopt($ch, CURLOPT_URL, "http://127.0.0.1/appliances/da/" . $sessionKey);
 
 //return the transfer as a string
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

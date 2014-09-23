@@ -9,8 +9,16 @@ $json_decoded = json_decode($f3->get('BODY'), true);
 
 if($authController->auth($f3->get('BODY'), false))
 {
+    $auth = $authController->provideSession($json_decoded["publicKey"]);
+
+    $response    = json_encode(array(
+        'session' => $auth->sessionKey,
+        'expire' => $auth->expire
+    ));
+
+
     echo json_encode(array(
-        'data' => $authController->provideSession($json_decoded["publicKey"])
+        'data' => $response
     ));
 }
 ?>
