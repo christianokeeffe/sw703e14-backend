@@ -21,9 +21,10 @@ curl_setopt($ch,CURLOPT_POSTFIELDS,$content);
 $result = curl_exec($ch);
 curl_close($ch);
 
+
 $session = json_decode($result)->data;
 
-$sessionKey = json_decode($session)->session;
+$sessionKey = $session->session;
 
 //---------------------------------------------------
 
@@ -57,7 +58,7 @@ $ch = curl_init();
 
 
 // set url
-curl_setopt($ch, CURLOPT_URL, "http://127.0.0.1/appliance/1/da/" . $sessionKey);
+curl_setopt($ch, CURLOPT_URL, "http://127.0.0.1/appliances/da/" . $sessionKey);
 
 //return the transfer as a string
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

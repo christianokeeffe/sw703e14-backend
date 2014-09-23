@@ -7,14 +7,24 @@ if($authController->auth($f3->get('BODY'), false))
 {
     $auth = $authController->provideSession($json_decoded["publicKey"]);
 
-    $response    = json_encode(array(
-        'session' => $auth->sessionKey,
-        'expire' => $auth->expire
-    ));
+    $data = array();
+    $data["session"] = $auth->sessionKey;
+    $data["expire"] = $auth->expire;
 
+    $response = array();
+    $response["status"] = "200 OK";
+    $response["status_code"] = "200";
+    $response["data"] = $data;
 
-    echo json_encode(array(
-        'data' => $response
-    ));
+    echo json_encode($response);
+}
+else
+{
+    $response = array();
+    $response["status"] = "401 Unauthorized";
+    $response["status_code"] = "401";
+    $response["data"] = null;
+
+    echo json_encode($response);
 }
 ?>
