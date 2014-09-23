@@ -20,7 +20,7 @@ class AuthModel {
             $currentTime = time();
 
             //sessions are valid 15 minutes
-            if(($currentTime - strtotime($auth->expire)) <= 900)
+            if((strtotime($auth->expire) -$currentTime) > 0)
             {
                 return $auth->key;
             }
@@ -32,7 +32,7 @@ class AuthModel {
     {
         $this->cleanOldSessions($api_key);
         $session_key = hash_hmac('sha256', rand(10000, 99999), $api_key);
-        $this->db->exec("INSERT INTO auth (`key`, sessionkey) VALUES ('$api_key', '$session_key')");
+        $this->db->exec("INSERT INTO auth (`key`, sessionkey, expire) VALUES ('$api_key', '$session_key', NOW() + INTERVAL 15 MINUTE)");
         $created_session = $this->getSession($session_key);
         return $created_session;
     }
