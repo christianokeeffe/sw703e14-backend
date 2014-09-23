@@ -1,5 +1,5 @@
 <?php
-require_once "ApiAuthNew.class.php";
+require_once "AuthController.php";
 
 class BaseController {
     protected $db;
@@ -16,32 +16,10 @@ class BaseController {
     }
 
     function beforeroute($f3) {
-        $authController = new ApiAuth($this->db);
 
+        $authController = new ApiAuth($f3);
 
         $request = $f3->get('BODY');
-
-/*
-        if(!isset($request["X-Public"]) || !isset($request["X-Hash"]))
-        {
-            if($f3->get('DEBUG') == 2)
-            {
-                echo "<b>REQUEST</b><br />";
-                var_dump($request);
-                echo "<br />";
-                echo "<b></b>BODY: </b>";
-                var_dump($f3->get('BODY'));
-            }
-            header("HTTP/1.0 400 Bad Request");
-            echo "ERROR: 400 Bad Request";
-            die();
-        }
-
-        $publicHash  = $request["X-Public"];
-        $contentHash = $request["X-Hash"];
-
-        $content     = $f3->get('BODY');
-*/
 
         if ($authController->auth($request))
         {

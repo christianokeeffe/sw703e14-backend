@@ -26,5 +26,12 @@ $f3->route('POST /appliances',
     }
 );
 
+$f3->route('POST /auth',
+    function($f3) {
+        //does not require session, therfore no beforeroute is called.
+        include "view/authView.php";
+    }
+);
+
 $f3->run();
 ?>

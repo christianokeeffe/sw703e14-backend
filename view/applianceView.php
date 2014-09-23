@@ -8,10 +8,14 @@ $parameters = json_decode($json_decoded["request"], true);
 
 if(isset($json_decoded["language"]))
 {
-    echo json_encode($applianceController->getAppliance($f3->get('PARAMS.id'),$parameters["language"]));
+    echo json_encode(array(
+        'data' => $applianceController->getAppliance($f3->get('PARAMS.id'),$parameters["language"])
+    ));
 }
 else
 {
-    echo json_encode($applianceController->getAppliance($f3->get('PARAMS.id')));
+    echo json_encode(array(
+        'data' => $applianceController->getAppliance($f3->get('PARAMS.id'))
+    ));
 }
 ?>
