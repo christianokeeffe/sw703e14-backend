@@ -1,129 +1,123 @@
-CREATE DATABASE  IF NOT EXISTS `smartgrid` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `smartgrid`;
--- MySQL dump 10.13  Distrib 5.6.13, for Win32 (x86)
+-- phpMyAdmin SQL Dump
+-- version 4.1.12
+-- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1    Database: smartgrid
--- ------------------------------------------------------
--- Server version	5.6.17
+-- Vært: 127.0.0.1
+-- Genereringstid: 25. 09 2014 kl. 16:13:20
+-- Serverversion: 5.6.16
+-- PHP-version: 5.5.11
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `api_keys`
+-- Database: `smartgrid`
 --
 
-DROP TABLE IF EXISTS `api_keys`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `api_keys` (
+-- --------------------------------------------------------
+
+--
+-- Struktur-dump for tabellen `api_keys`
+--
+
+CREATE TABLE IF NOT EXISTS `api_keys` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `public` varchar(65) NOT NULL,
   `private` varchar(65) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `api_keys`
+-- Data dump for tabellen `api_keys`
 --
 
-LOCK TABLES `api_keys` WRITE;
-/*!40000 ALTER TABLE `api_keys` DISABLE KEYS */;
-INSERT INTO `api_keys` VALUES (1,'a2105103cd48b1a8601486fc52d8bb43a1156a49b2f36f1d28ed177d0203ba99','c90adb0a3a6f0865062a639f5ad54f113f559031a658d503903ec48ced13078f');
-/*!40000 ALTER TABLE `api_keys` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `api_keys` (`id`, `public`, `private`) VALUES
+(1, 'a2105103cd48b1a8601486fc52d8bb43a1156a49b2f36f1d28ed177d0203ba99', 'c90adb0a3a6f0865062a639f5ad54f113f559031a658d503903ec48ced13078f');
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `appliances`
+-- Struktur-dump for tabellen `appliances`
 --
 
-DROP TABLE IF EXISTS `appliances`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `appliances` (
+CREATE TABLE IF NOT EXISTS `appliances` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `name` int(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `appliances`
+-- Data dump for tabellen `appliances`
 --
 
-LOCK TABLES `appliances` WRITE;
-/*!40000 ALTER TABLE `appliances` DISABLE KEYS */;
-INSERT INTO `appliances` VALUES (1,1),(2,2);
-/*!40000 ALTER TABLE `appliances` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `appliances` (`id`, `name`) VALUES
+(1, 1),
+(2, 2);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `auth`
+-- Struktur-dump for tabellen `auth`
 --
 
-DROP TABLE IF EXISTS `auth`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `auth` (
+CREATE TABLE IF NOT EXISTS `auth` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `key` varchar(70) DEFAULT NULL,
   `sessionkey` varchar(100) DEFAULT NULL,
   `expire` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=252 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=252 ;
 
 --
--- Dumping data for table `auth`
+-- Data dump for tabellen `auth`
 --
 
-LOCK TABLES `auth` WRITE;
-/*!40000 ALTER TABLE `auth` DISABLE KEYS */;
-INSERT INTO `auth` VALUES (251,'a2105103cd48b1a8601486fc52d8bb43a1156a49b2f36f1d28ed177d0203ba99','f86811e6d158ad410015c64469c0fd6be96733de56b2122bd02db6cd527b8d08','2014-09-23 07:58:53');
-/*!40000 ALTER TABLE `auth` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `auth` (`id`, `key`, `sessionkey`, `expire`) VALUES
+(251, 'a2105103cd48b1a8601486fc52d8bb43a1156a49b2f36f1d28ed177d0203ba99', 'f86811e6d158ad410015c64469c0fd6be96733de56b2122bd02db6cd527b8d08', '2014-09-23 07:58:53');
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `translation`
+-- Struktur-dump for tabellen `translation`
 --
 
-DROP TABLE IF EXISTS `translation`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `translation` (
+CREATE TABLE IF NOT EXISTS `translation` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `en` text CHARACTER SET latin1 NOT NULL,
   `da` text CHARACTER SET latin1 NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `translation`
+-- Data dump for tabellen `translation`
 --
 
-LOCK TABLES `translation` WRITE;
-/*!40000 ALTER TABLE `translation` DISABLE KEYS */;
-INSERT INTO `translation` VALUES (1,'Car','Bil'),(2,'Dryer','Tørretumbler');
-/*!40000 ALTER TABLE `translation` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO `translation` (`id`, `en`, `da`) VALUES
+(1, 'Car', 'Bil'),
+(2, 'Dryer', 'Tørretumbler');
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+-- --------------------------------------------------------
+
+--
+-- Struktur-dump for tabellen `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `username` int(99) NOT NULL,
+  `password` text NOT NULL,
+  `firstname` text NOT NULL,
+  `lastname` text NOT NULL,
+  `email` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2014-09-23 10:00:30
