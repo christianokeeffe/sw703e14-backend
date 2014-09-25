@@ -40,7 +40,14 @@ class AuthModel {
     function getSession($sessionKey)
     {
         $result = $this->db->exec("SELECT * FROM auth WHERE sessionkey =  '$sessionKey'");
-        return new Auth($result[0]["id"], $result[0]["key"], $result[0]["sessionkey"], $result[0]["expire"]);
+        if(isset($result[0]))
+        {
+            return new Auth($result[0]["id"], $result[0]["key"], $result[0]["sessionkey"], $result[0]["expire"]);
+        }
+        else
+        {
+            return null;
+        }
     }
 
     function cleanOldSessions($public)
