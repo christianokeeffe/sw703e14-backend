@@ -9,6 +9,12 @@ if($authController->auth($f3->get('BODY'), false))
 {
     $auth = $authController->provideSession($json_decoded["publicKey"]);
 
+    if($auth == null)
+    {
+        echo prepareResponse("401 Unauthorized", "401", null);
+        die();
+    }
+
     $data = array();
     $data["session"] = $auth->sessionKey;
     $data["expire"] = $auth->expire;
