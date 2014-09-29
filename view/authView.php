@@ -11,7 +11,7 @@ if($authController->auth($f3->get('BODY'), false))
 
     if($auth == null)
     {
-        echo prepareResponse("401 Unauthorized", "401", null);
+        echo prepareResponse("401", null);
         die();
     }
 
@@ -19,10 +19,10 @@ if($authController->auth($f3->get('BODY'), false))
     $data["session"] = $auth->sessionKey;
     $data["expire"] = $auth->expire;
 
-    echo prepareResponse("200 OK", "200", $data);
+    echo prepareResponse("200", $data);
 }
 else
 {
-    echo prepareResponse("401 Unauthorized", "401", null);
+    echo prepareResponse("401", null);
 }
 ?>

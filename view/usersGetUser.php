@@ -11,10 +11,10 @@ $data = $userController->authUser($username, $password);
 
 if($data != null)
 {
-    echo prepareResponse("200 OK", "200", $data);
+    echo prepareResponse("200", $data);
 }
 else
 {
-    echo prepareResponse("401 Unauthorized", "401", null);
+    echo prepareResponse("401", null);
 }
 ?>

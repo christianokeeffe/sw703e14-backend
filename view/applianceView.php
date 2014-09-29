@@ -7,10 +7,10 @@ $lang = $f3->get('PARAMS.lang');
 
 if(!empty($lang))
 {
-    echo prepareResponse("200", "200 OK", $applianceController->getAppliance($f3->get('PARAMS.id'), $lang));
+    echo prepareResponse("200", $applianceController->getAppliance($f3->get('PARAMS.id'), $lang));
 }
 else
 {
-    echo prepareResponse("200", "200 OK", $applianceController->getAppliance($f3->get('PARAMS.id')));
+    echo prepareResponse("200", $applianceController->getAppliance($f3->get('PARAMS.id')));
 }
 ?>

@@ -12,11 +12,11 @@ $data = $userController->insertUser($user);
 
 if($data != null)
 {
-    echo prepareResponse("200 OK", "200", $data);
+    echo prepareResponse("200", $data);
 }
 else
 {
-    echo prepareResponse("409 CONFLICT", "409", null);
+    echo prepareResponse("409", null);
 }
 
 ?>
