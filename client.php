@@ -27,7 +27,7 @@ $session = json_decode($result)->data;
 $sessionKey = $session->session;
 
 //---------------------------------------------------
-
+/*
 require_once "model/metadata/User.class.php";
 
 $user = new User(0, "username", "password", "firstname", "lastname", "email");
@@ -52,8 +52,8 @@ curl_setopt($ch,CURLOPT_POSTFIELDS,$content);
 $result = curl_exec($ch);
 curl_close($ch);
 var_dump($result);
+*/
 
-/*
 //CURL GET
 
 // create curl resource
@@ -73,5 +73,5 @@ $output = curl_exec($ch);
 curl_close($ch);
 
 var_dump($output);
-*/
+
 ?>

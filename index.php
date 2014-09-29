@@ -10,39 +10,6 @@ $f3->route('GET /',
     }
 );
 
-
-$f3->route('GET /appliance/@id/@session',
-    function($f3) {
-        $auth = new BaseController($f3);
-        $auth->beforerouteGET($f3);
-        include "view/applianceView.php";
-    }
-);
-
-$f3->route('GET /appliance/@id/@lang/@session',
-    function($f3) {
-        $auth = new BaseController($f3);
-        $auth->beforerouteGET($f3);
-        include "view/applianceView.php";
-    }
-);
-
-$f3->route('GET /appliances/@session',
-    function($f3) {
-        $auth = new BaseController($f3);
-        $auth->beforerouteGET($f3);
-        include "view/appliancesView.php";
-    }
-);
-
-$f3->route('GET /appliances/@lang/@session',
-    function($f3) {
-        $auth = new BaseController($f3);
-        $auth->beforerouteGET($f3);
-        include "view/appliancesView.php";
-    }
-);
-
 $f3->route('POST /auth',
     function($f3) {
         //does not require session, therfore no beforeroute is called.
@@ -50,21 +17,8 @@ $f3->route('POST /auth',
     }
 );
 
-$f3->route('PUT /user',
-    function($f3) {
-        $auth = new BaseController($f3);
-        $auth->beforeroutePOST($f3);
-        include "view/usersInsertView.php";
-    }
-);
-
-$f3->route('GET /user/@username/@password',
-    function($f3) {
-        $auth = new BaseController($f3);
-        $auth->beforerouteGET($f3);
-        include "view/usersGetUser.php";
-    }
-);
+include_once "routes_appliance.php";
+include_once "routes_user.php";
 
 $f3->run();
 ?>
