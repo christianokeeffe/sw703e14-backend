@@ -29,11 +29,8 @@ class ApiAuth extends BaseController {
             $public_key = $authModel->validate($session);
         }
 
-
         $apiKey = $apiKeyModel->getApiKey($public_key);
-
         $hash = hash_hmac('sha256', $request_body, $apiKey->private);
-
 
         if ($hash == $contentHash){
             return true;
@@ -48,7 +45,6 @@ class ApiAuth extends BaseController {
     {
         $authModel = new AuthModel($this->db);
         $public_key = $authModel->validate($sessionKey);
-
 
         if($public_key == null)
         {

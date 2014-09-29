@@ -28,9 +28,12 @@ $sessionKey = $session->session;
 
 //---------------------------------------------------
 
-/* CuRL POST
+require_once "model/metadata/User.class.php";
+
+$user = new User(0, "username", "password", "firstname", "lastname", "email");
+
 $request = json_encode(array(
-    'language' => 'da'
+    'user' => $user
 ));
 
 $hash = hash_hmac('sha256', $request, $privateHash);
@@ -39,18 +42,18 @@ $content    = json_encode(array(
     'publicKey' => $publicHash,
     'request' => $request,
     'requestHash' => $hash,
-    'session' => $session
+    'session' => $sessionKey
 ));
 
-$ch = curl_init('http://127.0.0.1/appliances');
+$ch = curl_init('http://127.0.0.1/user/');
 curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
 curl_setopt($ch,CURLOPT_POSTFIELDS,$content);
 
 $result = curl_exec($ch);
 curl_close($ch);
 var_dump($result);
-*/
 
+/*
 //CURL GET
 
 // create curl resource
@@ -70,4 +73,5 @@ $output = curl_exec($ch);
 curl_close($ch);
 
 var_dump($output);
+*/
 ?>
