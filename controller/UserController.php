@@ -30,6 +30,11 @@ class UserController extends BaseController {
         {
             return null;
         }
+    }
 
+    function authUser($username, $password)
+    {
+        $userModel = new UserModel($this->db);
+        return $userModel->authUser($username, $password);
     }
 } 
