@@ -4,6 +4,8 @@ $f3->config('app/config.ini');
 include "app/config.php";
 header('Access-Control-Allow-Origin: *');
 
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Headers: Content-Type');
 $f3->route('GET /',
     function($f3) {
         $template=new Template;
