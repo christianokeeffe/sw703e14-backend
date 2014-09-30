@@ -9,5 +9,4 @@ class Appliance {
         $this->name = $name;
     }
 }
-
 ?>

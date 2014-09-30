@@ -1,5 +1,5 @@
 <?php
-require_once "/model/metadata/Appliance.class.php";
+require_once "metadata/Appliance.class.php";
 
 class ApplianceModel {
     var $db;

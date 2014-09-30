@@ -1,5 +1,5 @@
 <?php
-require_once "/model/metadata/Auth.class.php";
+require_once "metadata/Auth.class.php";
 
 class AuthModel {
     var $db;
