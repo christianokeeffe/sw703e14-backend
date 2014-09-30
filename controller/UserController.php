@@ -1,5 +1,5 @@
 <?php
-require_once "/model/UserModel.class.php";
+require_once "./model/UserModel.class.php";
 require_once "BaseController.php";
 
 class UserController extends BaseController {

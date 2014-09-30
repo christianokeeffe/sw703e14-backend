@@ -1,5 +1,5 @@
 <?php
-require_once "/model/ApplianceModel.class.php";
+require_once "./model/ApplianceModel.class.php";
 require_once "BaseController.php";
 
 class ApplianceController extends BaseController {
