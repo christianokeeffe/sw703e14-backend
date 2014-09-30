@@ -12,7 +12,7 @@ $f3->route('GET /',
 
 $f3->route('POST /auth',
     function($f3) {
-        //does not require session, therfore no beforeroute is called.
+        //does not require session, therefore no beforeroute is called.
         include "view/authView.php";
     }
 );

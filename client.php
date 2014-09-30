@@ -14,7 +14,7 @@ $content    = json_encode(array(
     'requestHash' => $hash
 ));
 
-$ch = curl_init('http://127.0.0.1/auth');
+$ch = curl_init('http://127.0.0.1/backend/auth');
 curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
 curl_setopt($ch,CURLOPT_POSTFIELDS,$content);
 
@@ -61,7 +61,7 @@ $ch = curl_init();
 
 
 // set url
-curl_setopt($ch, CURLOPT_URL, "http://127.0.0.1/appliances/da/" . $sessionKey);
+curl_setopt($ch, CURLOPT_URL, "http://127.0.0.1/backend/appliances/da/" . $sessionKey);
 
 //return the transfer as a string
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
