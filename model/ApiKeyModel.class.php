@@ -1,5 +1,5 @@
 <?php
-require_once "/model/metadata/ApiKey.class.php";
+require_once "metadata/ApiKey.class.php";
 
 class ApiKeyModel {
     var $db;

@@ -1,5 +1,5 @@
 <?php
-require_once "/model/metadata/User.class.php";
+require_once "metadata/User.class.php";
 
 class UserModel {
     var $db;

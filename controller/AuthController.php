@@ -1,6 +1,6 @@
 <?php
-require_once "/model/ApiKeyModel.class.php";
-require_once "/model/AuthModel.class.php";
+require_once "./model/ApiKeyModel.class.php";
+require_once "./model/AuthModel.class.php";
 class ApiAuth extends BaseController {
 
     function auth($request, $session_required = true)
