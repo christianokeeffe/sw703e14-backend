@@ -1,5 +1,5 @@
 <?php
-require_once "/controller/ApplianceController.php";
+require_once "controller/ApplianceController.php";
 include_once "viewHelper.php";
 $applianceController = new ApplianceController($f3);
 

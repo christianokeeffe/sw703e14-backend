@@ -1,5 +1,5 @@
 <?php
-require_once "../controller/AuthController.php";
+require_once "controller/AuthController.php";
 include_once "viewHelper.php";
 
 $authController = new ApiAuth($f3);
