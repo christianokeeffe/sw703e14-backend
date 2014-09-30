@@ -1,5 +1,5 @@
 <?php
-require_once "controller/UserController.php";
+require_once "/controller/UserController.php";
 include_once "viewHelper.php";
 
 $userController = new UserController($f3);
