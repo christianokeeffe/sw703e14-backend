@@ -7,7 +7,7 @@ $f3->route('PUT /user',
     }
 );
 
-$f3->route('GET /user/@username/@password',
+$f3->route('GET /user/@username/@password/@session',
     function($f3) {
         $auth = new BaseController($f3);
         $auth->beforerouteGET($f3);
