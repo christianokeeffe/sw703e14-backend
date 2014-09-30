@@ -21,7 +21,6 @@ curl_setopt($ch,CURLOPT_POSTFIELDS,$content);
 $result = curl_exec($ch);
 curl_close($ch);
 
-
 $session = json_decode($result)->data;
 
 $sessionKey = $session->session;
@@ -61,7 +60,7 @@ $ch = curl_init();
 
 
 // set url
-curl_setopt($ch, CURLOPT_URL, "http://127.0.0.1/backend/appliances/da/" . $sessionKey);
+curl_setopt($ch, CURLOPT_URL, "http://127.0.0.1/backend/task/2/da/" . $sessionKey);
 
 //return the transfer as a string
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
