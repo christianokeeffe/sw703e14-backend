@@ -3,6 +3,7 @@ $f3 = require('fatfree/base.php');
 $f3->config('app/config.ini');
 include "app/config.php";
 
+header('Access-Control-Allow-Origin: *');
 $f3->route('GET /',
     function($f3) {
         $template=new Template;
