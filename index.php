@@ -2,6 +2,7 @@
 $f3 = require('fatfree/base.php');
 $f3->config('app/config.ini');
 include "app/config.php";
+header('Access-Control-Allow-Origin: *');
 
 $f3->route('GET /',
     function($f3) {
@@ -19,6 +20,7 @@ $f3->route('POST /auth',
 
 include_once "routes_appliance.php";
 include_once "routes_user.php";
+include_once "routes_task.php";
 
 $f3->run();
 ?>
