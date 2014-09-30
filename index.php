@@ -6,6 +6,7 @@ header('Access-Control-Allow-Origin: *');
 
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Headers: Content-Type');
+header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE');
 $f3->route('GET /',
     function($f3) {
         $template=new Template;
