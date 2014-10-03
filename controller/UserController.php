@@ -22,7 +22,7 @@ class UserController extends BaseController {
 
         $valid = $userModel->validateInputs($user);
 
-        if($valid != null)
+        if($valid == true)
         {
             return $userModel->insertUser($user);
         }
