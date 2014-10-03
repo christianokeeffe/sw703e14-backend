@@ -22,7 +22,7 @@ class UserModel {
 
     function getUserByEmail($email)
     {
-        $result = $this->db->exec("SELECT * FROM users WHERE email =  $email") or die("Error in the consult.." . mysqli_error($this->db));
+        $result = $this->db->exec("SELECT * FROM users WHERE email =  '$email'");
 
         if(count($result) <= 0)
         {
@@ -57,6 +57,7 @@ class UserModel {
         {
             return false;
         }
+        return true;
     }
 
     function authUser($username, $password)

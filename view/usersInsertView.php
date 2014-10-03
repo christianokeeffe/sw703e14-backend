@@ -6,7 +6,7 @@ $userController = new UserController($f3);
 $json_decoded = json_decode($f3->get('BODY'), true);
 
 
-$user = json_decode($json_decoded['request'])->user;
+$user = json_decode($json_decoded['request']);
 
 $data = $userController->insertUser($user);
 
