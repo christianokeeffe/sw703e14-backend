@@ -45,19 +45,18 @@ class BaseController {
         $authController = new ApiAuth($f3);
 
         $session = $f3->get('PARAMS.session');
-
         if ($authController->isValidSession($session))
         {
             header("HTTP/1.1 200 OK");
         }
         else
         {
-            if($f3->get('DEBUG') == 2)
+            /*f($f3->get('DEBUG') == 2)
             {
                 echo "request: ";
                 var_dump($request);
                 echo "<br />";
-            }
+            }*/
             header("HTTP/1.0 401 Unauthorized");
             echo "ERROR: 401 Unauthorized";
             die();
