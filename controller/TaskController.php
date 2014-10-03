@@ -1,5 +1,5 @@
 <?php
-require_once "/model/TaskModel.class.php";
+require_once "./model/TaskModel.class.php";
 require_once "BaseController.php";
 
 class TaskController extends BaseController {
