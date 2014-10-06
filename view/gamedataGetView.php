@@ -4,7 +4,7 @@ include_once "viewHelper.php";
 
 $gamedataController = new GamedataController($f3);
 
-$userID = $lang = $f3->get('PARAMS.userID');
+$userID = $f3->get('PARAMS.userID');
 
 $data = $gamedataController->getUserByID($userID);
 

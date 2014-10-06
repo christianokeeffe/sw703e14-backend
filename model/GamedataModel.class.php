@@ -8,7 +8,7 @@ class GamedataModel {
     {
         $this->db = $db;
     }
-
+	
     function insertGame($game)
     {
         $this->db->exec("INSERT INTO gamedata (userID, date, savings, score) VALUES ('$game->userID', '$game->date', '$game->savings', '$game->score')");

@@ -15,17 +15,22 @@ class ApplianceModel {
         return new Appliance($id, $result[0][$lang]);
     }
 
-    function getAppliances($lang)
-    {
-
-        $results = $this->db->exec("SELECT id, $lang FROM appliances NATURAL JOIN translation");
-
-        $appliances = array();
+function getAppliances($userID, $lang){
+		$result = $this->db->exec("SELECT appliances.id, $lang, appliances.price, appliances.energyLabel, appliances.energyConsumption, appliance_type.type
+		FROM appliances
+		INNER JOIN user_appliances
+			ON appliances.id = user_appliances.userID AND user_appliances.userID = $userID
+		NATURAL JOIN translation 
+			WHERE translation.id = appliances.name
+		NATURAL JOIN appliances_type 
+			WHERE appliances.type = appliance_type.typeID");
+		
+		$appliances = array();
         foreach($results as $result)
         {
-            $appliances[count($appliances)] = new Appliance($result["id"], $result[$lang]);
+            $appliances[count($appliances)] = new Appliance($result["id"], $result[$lang], $result["price"], $result["energyLabel"], $result["energyConsumption"]. $result["type"]);
         }
-
-        return $appliances;
-    }
+		
+		return $appliances;
+	}
 } 

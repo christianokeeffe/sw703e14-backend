@@ -10,9 +10,9 @@ class ApplianceController extends BaseController {
         return $appliance->getAppliance($id, $lang);
     }
 
-    function getAppliances($lang = 'en')
+    function getAppliances($userID, $lang = 'en')
     {
         $appliance = new ApplianceModel($this->db);
-        return $appliance->getAppliances($lang);
+        return $appliance->getAppliances($userID,$lang);
     }
 } 

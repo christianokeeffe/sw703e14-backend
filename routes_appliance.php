@@ -16,7 +16,7 @@ $f3->route('GET /appliance/@id/@lang/@session',
     }
 );
 
-$f3->route('GET /appliances/@session',
+$f3->route('GET /user_appliances/@userID/@session',
     function($f3) {
         $auth = new BaseController($f3);
         $auth->beforerouteGET($f3);
