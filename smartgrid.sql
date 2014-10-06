@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+  -- phpMyAdmin SQL Dump
 -- version 4.1.12
 -- http://www.phpmyadmin.net
 --
@@ -154,7 +154,10 @@ INSERT INTO `translation` (`id`, `en`, `da`) VALUES
 (11, 'Slapemdry', 'KlapTørre'),
 (12, 'BarelyBaker3000', 'NæstenBager3000'),
 (13, 'DirtyDisher', 'SnavsTilOpvasker'),
-(14, 'DustBlower', 'Støvpuster');
+(14, 'DustBlower', 'Støvpuster'),
+(15, 'Charge', 'Oplade'),
+(16, 'Dry', 'Tør'),
+(17, 'Extra dry', 'Ekstra tør');
 
 -- --------------------------------------------------------
 
@@ -183,6 +186,28 @@ CREATE TABLE IF NOT EXISTS `user_appliances` (
   `applianceID` varchar(45) NOT NULL,
   PRIMARY KEY (`userID`,`applianceID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur-dump for tabellen `tasks`
+--
+
+CREATE TABLE IF NOT EXISTS `tasks` (
+  `id` int(11) NOT NULL,
+  `name` int(11) NOT NULL,
+  `executionTime` int(11) NOT NULL,
+  `refAppliance` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Data dump for tabellen `tasks`
+--
+
+INSERT INTO `tasks` (`id`, `name`, `executionTime`, `refAppliance`) VALUES
+(1, 16, 3600, 4),
+(2, 17, 5400, 4),
+(3, 15, 1800, 2);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
