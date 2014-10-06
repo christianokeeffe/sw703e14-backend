@@ -1,5 +1,5 @@
-CREATE DATABASE  IF NOT EXISTS `smartgrid` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `smartgrid`;
+CREATE DATABASE  IF NOT EXISTS `okeeffed_smartgrid` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `okeeffed_smartgrid`;
 -- MySQL dump 10.13  Distrib 5.6.13, for Win32 (x86)
 --
 -- Host: 127.0.0.1    Database: smartgrid

@@ -18,7 +18,7 @@ class GamedataModel {
 	
 	function getUserByID($userID)
     {
-        $result = $this->db->exec("SELECT * FROM gamedata WHERE userID =  $userID") or die("Error in the consult.." . mysqli_error($this->db));
+        $result = $this->db->exec("SELECT * FROM gamedata WHERE userID =  $userID");
 
         if(count($result) <= 0)
         {
