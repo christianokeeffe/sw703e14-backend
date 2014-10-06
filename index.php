@@ -4,7 +4,6 @@ $f3->config('app/config.ini');
 include "app/config.php";
 header('Access-Control-Allow-Origin: *');
 
-header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Headers: Content-Type');
 header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE');
 $f3->route('GET /',
@@ -24,6 +23,7 @@ $f3->route('POST /auth',
 include_once "routes_appliance.php";
 include_once "routes_user.php";
 include_once "routes_task.php";
+include_once "routes_gamedata.php";
 
 $f3->run();
 ?>
