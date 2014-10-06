@@ -10,7 +10,7 @@ class GamedataController extends BaseController {
 
         $valid = $gamedataModel->validateInputs($game);
 
-        if($valid != null)
+        if($valid == true)
         {
             return $gamedataModel->insertGame($game);
         }
@@ -25,4 +25,5 @@ class GamedataController extends BaseController {
         $gamedataModel = new GamedataModel($this->db);
         return $gamedataModel->getUserByID($userID);
     }
+	
 } 

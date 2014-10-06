@@ -15,7 +15,8 @@ class GamedataModel {
 
         return $this->getUserByID($game->userID);
     }
-	    function getUserByID($userID)
+	
+	function getUserByID($userID)
     {
         $result = $this->db->exec("SELECT * FROM gamedata WHERE userID =  $userID") or die("Error in the consult.." . mysqli_error($this->db));
 
@@ -33,5 +34,6 @@ class GamedataModel {
         {
             return false;
         }
+		return true;
     }
 }

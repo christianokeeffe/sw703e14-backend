@@ -1,5 +1,5 @@
 <?php
-class User {
+class Game {
     var $userID;
     var $saveID;
     var $savings;

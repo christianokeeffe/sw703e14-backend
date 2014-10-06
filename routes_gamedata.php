@@ -7,7 +7,7 @@ $f3->route('PUT /gamedata',
     }
 );
 
-$f3->route('GET /gamedata/@userID/@data/@savings/@score',
+$f3->route('GET /gamedata/@userID/@session',
     function($f3) {
         $auth = new BaseController($f3);
         $auth->beforerouteGET($f3);
