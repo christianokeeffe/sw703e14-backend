@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.7.1
+-- version 4.1.12
 -- http://www.phpmyadmin.net
 --
 -- Vært: 127.0.0.1
--- Genereringstid: 30. 09 2014 kl. 09:50:22
--- Serverversion: 5.6.20
--- PHP-version: 5.5.15
+-- Genereringstid: 06. 10 2014 kl. 12:02:48
+-- Serverversion: 5.6.16
+-- PHP-version: 5.5.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `smartgrid`
+-- Database: `okeeffed_smartgrid`
 --
 
 -- --------------------------------------------------------
@@ -27,9 +27,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `api_keys` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `public` varchar(65) NOT NULL,
-  `private` varchar(65) NOT NULL
+  `private` varchar(65) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
@@ -46,17 +47,52 @@ INSERT INTO `api_keys` (`id`, `public`, `private`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `appliances` (
-`id` int(255) NOT NULL,
-  `name` int(255) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `name` int(255) NOT NULL,
+  `price` int(11) NOT NULL,
+  `energyLabel` varchar(3) NOT NULL,
+  `energyConsumption` int(11) NOT NULL,
+  `type` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Data dump for tabellen `appliances`
 --
 
-INSERT INTO `appliances` (`id`, `name`) VALUES
+INSERT INTO `appliances` (`id`, `name`, `price`, `energyLabel`, `energyConsumption`, `type`) VALUES
+(1, 8, 0, 'g', 100, 1),
+(2, 9, 0, 'g', 100, 2),
+(3, 10, 0, 'g', 100, 3),
+(4, 11, 0, 'g', 400, 4),
+(5, 12, 0, 'g', 100, 5),
+(6, 13, 0, 'g', 100, 6),
+(7, 14, 0, 'g', 100, 7);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur-dump for tabellen `appliance_type`
+--
+
+CREATE TABLE IF NOT EXISTS `appliance_type` (
+  `typeID` int(11) NOT NULL AUTO_INCREMENT,
+  `type` int(11) DEFAULT NULL,
+  PRIMARY KEY (`typeID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+--
+-- Data dump for tabellen `appliance_type`
+--
+
+INSERT INTO `appliance_type` (`typeID`, `type`) VALUES
 (1, 1),
-(2, 2);
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7);
 
 -- --------------------------------------------------------
 
@@ -65,40 +101,27 @@ INSERT INTO `appliances` (`id`, `name`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `auth` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `key` varchar(70) DEFAULT NULL,
   `sessionkey` varchar(100) DEFAULT NULL,
-  `expire` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=266 ;
-
---
--- Data dump for tabellen `auth`
---
-
-INSERT INTO `auth` (`id`, `key`, `sessionkey`, `expire`) VALUES
-(265, 'a2105103cd48b1a8601486fc52d8bb43a1156a49b2f36f1d28ed177d0203ba99', '49b6016d3d56dd169524329752121e4f4f00839611ea62d103394fc3b2f19834', '2014-09-30 07:34:45');
+  `expire` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Struktur-dump for tabellen `tasks`
+-- Struktur-dump for tabellen `gamedata`
 --
 
-CREATE TABLE IF NOT EXISTS `tasks` (
-  `id` int(11) NOT NULL,
-  `name` int(11) NOT NULL,
-  `executionTime` int(11) NOT NULL,
-  `refAppliance` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Data dump for tabellen `tasks`
---
-
-INSERT INTO `tasks` (`id`, `name`, `executionTime`, `refAppliance`) VALUES
-(1, 4, 3600, 2),
-(2, 5, 5400, 2),
-(3, 3, 1800, 1);
+CREATE TABLE IF NOT EXISTS `gamedata` (
+  `saveID` int(11) NOT NULL AUTO_INCREMENT,
+  `userID` int(11) NOT NULL,
+  `date` int(11) NOT NULL,
+  `savings` int(11) NOT NULL,
+  `score` int(11) NOT NULL,
+  PRIMARY KEY (`saveID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -107,21 +130,31 @@ INSERT INTO `tasks` (`id`, `name`, `executionTime`, `refAppliance`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `translation` (
-`id` int(255) NOT NULL,
+  `id` int(255) NOT NULL AUTO_INCREMENT,
   `en` text CHARACTER SET latin1 NOT NULL,
-  `da` text CHARACTER SET latin1 NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+  `da` text CHARACTER SET latin1 NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
 -- Data dump for tabellen `translation`
 --
 
 INSERT INTO `translation` (`id`, `en`, `da`) VALUES
-(1, 'Car', 'Bil'),
-(2, 'Dryer', 'Tørretumbler'),
-(3, 'Charge', 'Oplade'),
-(4, 'Dry', 'Tør'),
-(5, 'Extra dry', 'Ekstra tør');
+(1, 'Refrigerator', 'Køleskab'),
+(2, 'Car', 'Bil'),
+(3, 'Washer', 'Vaskemaskine'),
+(4, 'Dryer', 'Tørretumbler'),
+(5, 'Stove', 'Komfur'),
+(6, 'Dishwasher', 'Opvaskemaskine'),
+(7, 'Vacuum cleaner', 'Støvsuger'),
+(8, 'Cool&freeze1000', 'Køl&Frys1000'),
+(9, 'ScrapCar', 'SkrotBil'),
+(10, 'CrapWash', 'SkrotVasker'),
+(11, 'Slapemdry', 'KlapTørre'),
+(12, 'BarelyBaker3000', 'NæstenBager3000'),
+(13, 'DirtyDisher', 'SnavsTilOpvasker'),
+(14, 'DustBlower', 'Støvpuster');
 
 -- --------------------------------------------------------
 
@@ -130,83 +163,27 @@ INSERT INTO `translation` (`id`, `en`, `da`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-`id` int(255) NOT NULL,
+  `id` int(255) NOT NULL AUTO_INCREMENT,
   `username` int(99) NOT NULL,
   `password` text NOT NULL,
   `firstname` text NOT NULL,
   `lastname` text NOT NULL,
-  `email` text NOT NULL
+  `email` text NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
---
--- Begrænsninger for dumpede tabeller
---
+-- --------------------------------------------------------
 
 --
--- Indeks for tabel `api_keys`
---
-ALTER TABLE `api_keys`
- ADD PRIMARY KEY (`id`);
-
---
--- Indeks for tabel `appliances`
---
-ALTER TABLE `appliances`
- ADD PRIMARY KEY (`id`);
-
---
--- Indeks for tabel `auth`
---
-ALTER TABLE `auth`
- ADD PRIMARY KEY (`id`);
-
---
--- Indeks for tabel `tasks`
---
-ALTER TABLE `tasks`
- ADD PRIMARY KEY (`id`);
-
---
--- Indeks for tabel `translation`
---
-ALTER TABLE `translation`
- ADD PRIMARY KEY (`id`);
-
---
--- Indeks for tabel `users`
---
-ALTER TABLE `users`
- ADD PRIMARY KEY (`id`);
-
---
--- Brug ikke AUTO_INCREMENT for slettede tabeller
+-- Struktur-dump for tabellen `user_appliances`
 --
 
---
--- Tilføj AUTO_INCREMENT i tabel `api_keys`
---
-ALTER TABLE `api_keys`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- Tilføj AUTO_INCREMENT i tabel `appliances`
---
-ALTER TABLE `appliances`
-MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- Tilføj AUTO_INCREMENT i tabel `auth`
---
-ALTER TABLE `auth`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=266;
---
--- Tilføj AUTO_INCREMENT i tabel `translation`
---
-ALTER TABLE `translation`
-MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
---
--- Tilføj AUTO_INCREMENT i tabel `users`
---
-ALTER TABLE `users`
-MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+CREATE TABLE IF NOT EXISTS `user_appliances` (
+  `userID` int(11) NOT NULL,
+  `applianceID` varchar(45) NOT NULL,
+  PRIMARY KEY (`userID`,`applianceID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
