@@ -24,6 +24,7 @@ $f3->route('POST /auth',
 include_once "routes_appliance.php";
 include_once "routes_user.php";
 include_once "routes_task.php";
+include_once "routes_gamedata.php"
 
 $f3->run();
 ?>
