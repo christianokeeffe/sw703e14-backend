@@ -6,7 +6,7 @@ $gamedataController = new GamedataController($f3);
 $json_decoded = json_decode($f3->get('BODY'), true);
 
 
-$game = json_decode($json_decoded['request'])->game;
+$game = json_decode($json_decoded['request']);
 
 $data = $gamedataController->insertGame($game);
 
