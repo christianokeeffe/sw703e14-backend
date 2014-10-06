@@ -18,6 +18,29 @@ USE `smartgrid`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `appliance_type`
+--
+
+DROP TABLE IF EXISTS `appliance_type`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `appliance_type` (
+  `typeID` int(11) NOT NULL,
+  `type` int(11) DEFAULT NULL,
+  PRIMARY KEY (`typeID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `appliance_type`
+--
+
+LOCK TABLES `appliance_type` WRITE;
+/*!40000 ALTER TABLE `appliance_type` DISABLE KEYS */;
+/*!40000 ALTER TABLE `appliance_type` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `appliances`
 --
 
@@ -30,6 +53,7 @@ CREATE TABLE `appliances` (
   `price` int(11) NOT NULL,
   `energyLabel` varchar(3) NOT NULL,
   `energyConsumption` int(11) NOT NULL,
+  `type` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -40,7 +64,7 @@ CREATE TABLE `appliances` (
 
 LOCK TABLES `appliances` WRITE;
 /*!40000 ALTER TABLE `appliances` DISABLE KEYS */;
-INSERT INTO `appliances` VALUES (1,1,0,'',0),(2,2,0,'',0);
+INSERT INTO `appliances` VALUES (1,1,0,'',0,0),(2,2,0,'',0,0);
 /*!40000 ALTER TABLE `appliances` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -78,13 +102,9 @@ DROP TABLE IF EXISTS `user_appliances`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user_appliances` (
-  `saveID` int(11) NOT NULL,
-  `refrigerator` int(11) DEFAULT NULL,
-  `dryer` int(11) DEFAULT NULL,
-  `dishwasher` int(11) DEFAULT NULL,
-  `tv` int(11) DEFAULT NULL,
-  `car` int(11) DEFAULT NULL,
-  PRIMARY KEY (`saveID`)
+  `userID` int(11) NOT NULL,
+  `applianceID` varchar(45) NOT NULL,
+  PRIMARY KEY (`userID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -106,4 +126,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-10-03 11:58:22
+-- Dump completed on 2014-10-06  9:32:18
