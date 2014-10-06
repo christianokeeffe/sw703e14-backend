@@ -27,13 +27,4 @@ class GamedataModel {
 
         return new Game($result[0]["saveID"], $result[0]["userID"], $result[0]["date"], $result[0]["savings"], $result[0]["score"]);
     }
-
-    function validateInputs($game)
-    {
-        if($this->getUserByID($game->userID) != null)
-        {
-            return false;
-        }
-		return true;
-    }
 }

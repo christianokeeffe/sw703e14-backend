@@ -14,16 +14,8 @@ class GamedataController extends BaseController {
     {
         $gamedataModel = new gamedataModel($this->db);
 
-        $valid = $gamedataModel->validateInputs($game);
-
-        if($valid == true)
-        {
-            return $gamedataModel->insertGame($game);
-        }
-        else
-        {
-            return null;
-        }
+        return $gamedataModel->insertGame($game);
+        
     }
 	
 
