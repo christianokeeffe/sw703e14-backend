@@ -26,7 +26,6 @@ function getAppliances($userID, $lang){
 		INNER JOIN appliance_type 
 			ON appliances.type = appliance_type.typeID");
 		
-        var_dump($results);
 		$appliances = array();
         
         foreach($results as $result)
@@ -34,6 +33,14 @@ function getAppliances($userID, $lang){
             $appliances[count($appliances)] = new Appliance($result["id"], $result[$lang], $result["price"], $result["energyLabel"], $result["energyConsumption"]. $result["type"]);
         }
 		
+        $appliances[0]= "SELECT appliances.id, $lang, appliances.price, appliances.energyLabel, appliances.energyConsumption, appliance_type.type
+        FROM appliances
+        INNER JOIN user_appliances
+            ON appliances.id = user_appliances.userID AND user_appliances.userID = $userID
+        INNER JOIN translation 
+            ON translation.id = appliances.name
+        INNER JOIN appliance_type 
+            ON appliances.type = appliance_type.typeID";
 		return $appliances;
 	}
 } 
