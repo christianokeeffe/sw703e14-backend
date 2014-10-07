@@ -4,15 +4,15 @@ require_once "BaseController.php";
 
 class ApplianceController extends BaseController {
 
-    function getAppliance($id, $lang = 'en')
+    function getAppliance($userID, $lang = 'en')
     {
         $appliance = new ApplianceModel($this->db);
-        return $appliance->getAppliance($id, $lang);
+        return $appliance->getAppliance($userID, $lang);
     }
 
-    function getAppliances($lang = 'en')
+    function getAppliances($userID, $lang = 'en')
     {
         $appliance = new ApplianceModel($this->db);
-        return $appliance->getAppliances($lang);
+        return $appliance->getAppliances($userID,$lang);
     }
 } 

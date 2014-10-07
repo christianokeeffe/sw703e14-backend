@@ -34,7 +34,7 @@ class UserModel {
 
     function getUserByUsername($username)
     {
-        $result = $this->db->exec("SELECT * FROM users WHERE username =  $username") or die("Error in the consult.." . mysqli_error($this->db));
+        $result = $this->db->exec("SELECT * FROM users WHERE username =  '$username'") or die("Error in the consult.." . mysqli_error($this->db));
 
         if(count($result) <= 0)
         {
@@ -72,11 +72,11 @@ class UserModel {
 
         if($db_user->password == $password)
         {
-            return true;
+            return $db_user;
         }
         else
         {
-            return false;
+            return null;
         }
     }
 }

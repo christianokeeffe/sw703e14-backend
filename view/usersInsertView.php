@@ -1,4 +1,5 @@
 <?php
+
 require_once "controller/UserController.php";
 include_once "viewHelper.php";
 
@@ -7,7 +8,6 @@ $json_decoded = json_decode($f3->get('BODY'), true);
 
 
 $user = json_decode($json_decoded['request']);
-
 $data = $userController->insertUser($user);
 
 if($data != null)
