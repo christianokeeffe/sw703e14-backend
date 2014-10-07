@@ -72,11 +72,11 @@ class UserModel {
 
         if($db_user->password == $password)
         {
-            return true;
+            return $db_user;
         }
         else
         {
-            return false;
+            return null;
         }
     }
 }
