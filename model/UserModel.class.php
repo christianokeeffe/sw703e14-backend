@@ -34,7 +34,7 @@ class UserModel {
 
     function getUserByUsername($username)
     {
-        $result = $this->db->exec("SELECT * FROM users WHERE username =  $username") or die("Error in the consult.." . mysqli_error($this->db));
+        $result = $this->db->exec("SELECT * FROM users WHERE username =  '$username'") or die("Error in the consult.." . mysqli_error($this->db));
 
         if(count($result) <= 0)
         {
@@ -47,7 +47,8 @@ class UserModel {
     function insertUser($user)
     {
         $this->db->exec("INSERT INTO users (username, password, firstname, lastname, email) VALUES ('$user->username', '$user->password', '$user->firstname', '$user->lastname', '$user->email')");
-
+        $newuser = $this->getUserByEmail($user->email);
+        $this->db->exec("INSERT INTO user_appliances (userID, applianceID) VALUES ($newuser->id,1),($newuser->id,2),($newuser->id,3),($newuser->id,4),($newuser->id,5),($newuser->id,6),($newuser->id,7)");
         return $this->getUserByEmail($user->email);
     }
 
@@ -71,11 +72,11 @@ class UserModel {
 
         if($db_user->password == $password)
         {
-            return true;
+            return $db_user;
         }
         else
         {
-            return false;
+            return null;
         }
     }
 }
