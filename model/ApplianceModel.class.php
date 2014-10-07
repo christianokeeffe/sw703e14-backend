@@ -16,16 +16,19 @@ class ApplianceModel {
     }
 
 function getAppliances($userID, $lang){
-		$result = $this->db->exec("SELECT appliances.id, $lang, appliances.price, appliances.energyLabel, appliances.energyConsumption, appliance_type.type
+		$results = $this->db->exec(
+        "SELECT appliances.id, $lang, appliances.price, appliances.energyLabel, appliances.energyConsumption, appliance_type.type
 		FROM appliances
 		INNER JOIN user_appliances
 			ON appliances.id = user_appliances.userID AND user_appliances.userID = $userID
-		NATURAL JOIN translation 
-			WHERE translation.id = appliances.name
-		NATURAL JOIN appliances_type 
-			WHERE appliances.type = appliance_type.typeID");
+		INNER JOIN translation 
+			ON translation.id = appliances.name
+		INNER JOIN appliance_type 
+			ON appliances.type = appliance_type.typeID");
 		
+        var_dump($results);
 		$appliances = array();
+        
         foreach($results as $result)
         {
             $appliances[count($appliances)] = new Appliance($result["id"], $result[$lang], $result["price"], $result["energyLabel"], $result["energyConsumption"]. $result["type"]);
