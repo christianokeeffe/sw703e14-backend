@@ -34,7 +34,7 @@ class UserModel {
 
     function getUserByUsername($username)
     {
-        $result = $this->db->exec("SELECT * FROM users WHERE username =  '$username'") or die("Error in the consult.." . mysqli_error($this->db));
+        $result = $this->db->exec("SELECT * FROM users WHERE username =  '$username'");
 
         if(count($result) <= 0)
         {
