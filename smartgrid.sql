@@ -175,6 +175,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
+INSERT INTO `users` (`username`, `password`, `firstname`, `lastname`, `email`) VALUES
+('chro', '1234', 'Christian', 'OKeeffe', 'christianokeeffe@gmail.com'),
+('dude', '1234', 'Christian', 'OKeeffe', 'christianokeeffe@gmail.com'),
+('handsome', '1234', 'Christian', 'OKeeffe', 'christianokeeffe@gmail.com'),
+('mettemuzen', 'mette', 'Christian', 'OKeeffe', 'christianokeeffe@gmail.com'),
+('kapper', '1234', 'Christian', 'OKeeffe', 'christianokeeffe@gmail.com'),
+('gerda', '1234', 'Christian', 'OKeeffe', 'christianokeeffe@gmail.com');
+
 -- --------------------------------------------------------
 
 --
@@ -186,7 +194,13 @@ CREATE TABLE IF NOT EXISTS `user_appliances` (
   `applianceID` varchar(45) NOT NULL,
   PRIMARY KEY (`userID`,`applianceID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+INSERT INTO `user_appliances` (`userID`, `applianceID`) VALUES
+(1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(1,7),
+(2,1),(2,2),(2,3),(2,4),(2,5),(2,6),(2,7),
+(3,1),(3,2),(3,3),(3,4),(3,5),(3,6),(3,7),
+(4,1),(4,2),(4,3),(4,4),(4,5),(4,6),(4,7),
+(5,1),(5,2),(5,3),(5,4),(5,5),(5,6),(5,7),
+(6,1),(6,2),(6,3),(6,4),(6,5),(6,6),(6,7);
 -- --------------------------------------------------------
 
 --
