@@ -167,7 +167,7 @@ INSERT INTO `translation` (`id`, `en`, `da`) VALUES
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
-  `username` int(99) NOT NULL,
+  `username` text NOT NULL,
   `password` text NOT NULL,
   `firstname` text NOT NULL,
   `lastname` text NOT NULL,
