@@ -16,8 +16,6 @@ class GamedataController extends BaseController {
 
         return $gamedataModel->insertGame($game);
         
-    }
+    } 
 	
-	function 
-	
-} 
+}
