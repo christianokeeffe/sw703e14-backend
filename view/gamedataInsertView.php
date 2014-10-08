@@ -1,5 +1,5 @@
 <?php
-require_once "controller/GamedataController.php";
+require_once "./controller/GamedataController.php";
 include_once "viewHelper.php";
 
 $gamedataController = new GamedataController($f3);

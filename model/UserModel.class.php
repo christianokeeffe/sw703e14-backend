@@ -70,7 +70,11 @@ class UserModel {
             $db_user = $this->getUserByUsername($username);
         }
 
-        if($db_user->password == $password)
+        if($db_user == null)
+        {
+            return null;
+        }
+        elseif($db_user->password == $password)
         {
             return $db_user;
         }

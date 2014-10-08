@@ -1,4 +1,5 @@
 <?php
+
 require_once "controller/GamedataController.php";
 include_once "viewHelper.php";
 
