@@ -20,7 +20,7 @@ function getAppliances($userID, $lang){
         "SELECT appliances.id, name.$lang AS name, type.$lang AS type, appliances.energyConsumption, appliances.energyLabel, appliances.price
     FROM appliances
     INNER JOIN user_appliances
-    ON appliances.id=user_appliances.applianceID  AND user_appliances.userID = '$userID'
+    ON appliances.id=user_appliances.applianceID  AND user_appliances.userID = $userID
     INNER JOIN translation AS name
     ON name.id = appliances.name
     INNER JOIN appliance_type
