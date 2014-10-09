@@ -20,8 +20,14 @@ class BaseController {
         $authController = new ApiAuth($f3);
 
         $request = $f3->get('BODY');
-
-        if ($authController->auth($request))
+        $isvalid = $authController->auth($request);
+        if($isvalid == 419)
+        {
+            header("HTTP/1.0 419 Expired");
+            echo "ERROR: 419 Expired";
+            die();
+        }
+        else if ($isvalid)
         {
             header("HTTP/1.1 200 OK");
         }
@@ -45,7 +51,14 @@ class BaseController {
         $authController = new ApiAuth($f3);
 
         $session = $f3->get('PARAMS.session');
-        if ($authController->isValidSession($session))
+        $isvalid = $authController->isValidSession($session);
+        if($isvalid == 419)
+        {
+            header("HTTP/1.0 419 Expired");
+            echo "ERROR: 419 Expired";
+            die();
+        }
+        else if ($isvalid)
         {
             header("HTTP/1.1 200 OK");
         }

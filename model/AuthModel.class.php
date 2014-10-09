@@ -24,6 +24,10 @@ class AuthModel {
             {
                 return $auth->key;
             }
+            else
+            {
+                return 419;
+            }
         }
         return null;
     }
