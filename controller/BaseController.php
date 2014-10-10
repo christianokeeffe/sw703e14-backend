@@ -20,30 +20,39 @@ class BaseController {
         $authController = new ApiAuth($f3);
 
         $request = $f3->get('BODY');
-        $isvalid = $authController->auth($request);
-        if($isvalid == 419)
-        {
-            header("HTTP/1.0 419 Expired");
-            echo "ERROR: 419 Expired";
-            die();
-        }
-        else if ($isvalid)
-        {
-            header("HTTP/1.1 200 OK");
-        }
-        else
-        {
-            if($f3->get('DEBUG') == 2)
-            {
-                echo "request: ";
-                var_dump($request);
-                echo "<br />";
-            }
-            header("HTTP/1.0 401 Unauthorized");
-            echo "ERROR: 401 Unauthorized";
-            die();
-        }
 
+        $isvalid = $authController->auth($request);
+
+        switch ($isvalid) {
+            case 1:
+                header("HTTP/1.1 200 OK");
+                break;
+            case 0:
+                if($f3->get('DEBUG') == 2)
+                {
+                    echo "request: ";
+                    var_dump($request);
+                    echo "<br />";
+                }
+                header("HTTP/1.0 401 Unauthorized");
+                echo "ERROR: 401 Unauthorized";
+                die();
+                break;
+            case 419:
+                header("HTTP/1.0 419 Expired");
+                echo "ERROR: 419 Expired";
+                die();
+                break;
+            case 400:
+                header("HTTP/1.0 400 Bad Request");
+                echo "ERROR: 400 Bad Request";
+                die();
+                break;
+            default:
+                header("HTTP/1.0 401 Unauthorized");
+                echo "ERROR: 401 Unauthorized";
+                die();
+        }
     }
 
     function beforerouteGET($f3) {
@@ -66,6 +75,11 @@ class BaseController {
                 header("HTTP/1.0 419 Expired");
                 echo "ERROR: 419 Expired";
                 die();
+            case 400:
+                header("HTTP/1.0 400 Bad Request");
+                echo "ERROR: 400 Bad Request";
+                die();
+                break;
             default:
                 header("HTTP/1.0 401 Unauthorized");
                 echo "ERROR: 401 Unauthorized";

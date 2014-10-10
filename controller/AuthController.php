@@ -11,7 +11,7 @@ class ApiAuth extends BaseController {
 
         if(!isset($arr_request["publicKey"]) || !isset($arr_request["request"]) || !isset($arr_request["requestHash"]))
         {
-            return false;
+            return 400;
         }
 
         $public_key = $arr_request["publicKey"];
@@ -22,10 +22,12 @@ class ApiAuth extends BaseController {
         {
             if(!isset($arr_request["session"]))
             {
-                return false;
+                return 0;
             }
+
             $session = $arr_request["session"];
             $public_key = $this->isValidSession($session);
+
             if($public_key == 419)
             {
                 return 419;
@@ -33,14 +35,16 @@ class ApiAuth extends BaseController {
         }
 
         $apiKey = $apiKeyModel->getApiKey($public_key);
+
         $hash = hash_hmac('sha256', $request_body, $apiKey->private);
 
-        if ($hash == $contentHash){
-            return true;
+        if ($hash == $contentHash)
+        {
+            return 1;
         }
         else
         {
-            return false;
+            return 0;
         }
     }
 
@@ -59,7 +63,7 @@ class ApiAuth extends BaseController {
         }
         else
         {
-            return 1;
+            return $public_key;
         }
     }
 

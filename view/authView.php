@@ -5,7 +5,7 @@ include_once "viewHelper.php";
 $authController = new ApiAuth($f3);
 $json_decoded = json_decode($f3->get('BODY'), true);
 
-if($authController->auth($f3->get('BODY'), false))
+if($authController->auth($f3->get('BODY'), false) == 1)
 {
     $auth = $authController->provideSession($json_decoded["publicKey"]);
 
