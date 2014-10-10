@@ -156,8 +156,15 @@ INSERT INTO `translation` (`id`, `en`, `da`) VALUES
 (13, 'DirtyDisher', 'SnavsTilOpvasker'),
 (14, 'DustBlower', 'Støvpuster'),
 (15, 'Charge', 'Oplade'),
-(16, 'Dry', 'Tør'),
-(17, 'Extra dry', 'Ekstra tør');
+(16, 'Wash clothes', 'Vask tøj')
+(17, 'Dry', 'Tør'),
+(18, 'Extra dry', 'Ekstra tør'),
+(19, 'Make breakfast', 'Lav morgenmad'),
+(20, 'Make lunch', 'Lav frokost'),
+(21, 'Make supper', 'Lav aftensmad'),
+(22, 'Bake cake', 'Bag kage'),
+(23, 'Wash dishes', 'Start opvaskmaskinen'),
+(24, 'Clean house', 'Gør rent');
 
 -- --------------------------------------------------------
 
@@ -219,9 +226,16 @@ CREATE TABLE IF NOT EXISTS `tasks` (
 --
 
 INSERT INTO `tasks` (`id`, `name`, `executionTime`, `refAppliance`) VALUES
-(1, 16, 3600, 4),
-(2, 17, 5400, 4),
-(3, 15, 1800, 2);
+(1, 15, 7200, 2),
+(2, 16, 10800, 3),
+(3, 17, 14400, 4),
+(4, 18, 18000, 4),
+(5, 19, 21600, 5),
+(6, 20, 25200, 5),
+(7, 21, 28800, 5),
+(8, 22, 32400, 5),
+(9, 23, 36000, 6),
+(10, 24, 39600, 7);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
