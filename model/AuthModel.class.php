@@ -56,6 +56,6 @@ class AuthModel {
 
     function cleanOldSessions($public)
     {
-        $this->db->exec("DELETE FROM auth WHERE `key` = '$public'");
+        $this->db->exec("DELETE FROM auth WHERE expire < (NOW())");
     }
 } 
