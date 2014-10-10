@@ -156,7 +156,7 @@ INSERT INTO `translation` (`id`, `en`, `da`) VALUES
 (13, 'DirtyDisher', 'SnavsTilOpvasker'),
 (14, 'DustBlower', 'Støvpuster'),
 (15, 'Charge', 'Oplade'),
-(16, 'Wash clothes', 'Vask tøj')
+(16, 'Wash clothes', 'Vask tøj'),
 (17, 'Dry', 'Tør'),
 (18, 'Extra dry', 'Ekstra tør'),
 (19, 'Make breakfast', 'Lav morgenmad'),
