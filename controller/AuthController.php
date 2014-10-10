@@ -25,8 +25,7 @@ class ApiAuth extends BaseController {
                 return false;
             }
             $session = $arr_request["session"];
-            $authModel = new AuthModel($this->db);
-            $public_key = $authModel->validate($session);
+            $public_key = $this->isValidSession($session);
             if($public_key == 419)
             {
                 return 419;
@@ -52,7 +51,7 @@ class ApiAuth extends BaseController {
 
         if($public_key == null)
         {
-            return false;
+            return 0;
         }
         else if($public_key == 419)
         {
@@ -60,7 +59,7 @@ class ApiAuth extends BaseController {
         }
         else
         {
-            return true;
+            return 1;
         }
     }
 

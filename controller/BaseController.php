@@ -52,28 +52,24 @@ class BaseController {
 
         $session = $f3->get('PARAMS.session');
         $isvalid = $authController->isValidSession($session);
-        if($isvalid == 419)
-        {
-            header("HTTP/1.0 419 Expired");
-            echo "ERROR: 419 Expired";
-            die();
-        }
-        else if ($isvalid)
-        {
-            header("HTTP/1.1 200 OK");
-        }
-        else
-        {
-            /*f($f3->get('DEBUG') == 2)
-            {
-                echo "request: ";
-                var_dump($request);
-                echo "<br />";
-            }*/
-            header("HTTP/1.0 401 Unauthorized");
-            echo "ERROR: 401 Unauthorized";
-            die();
-        }
 
+        switch ($isvalid) {
+            case 1:
+                header("HTTP/1.1 200 OK");
+            break;
+            case 0:
+                header("HTTP/1.0 401 Unauthorized");
+                echo "ERROR: 401 Unauthorized";
+                die();
+            break;
+            case 419:
+                header("HTTP/1.0 419 Expired");
+                echo "ERROR: 419 Expired";
+                die();
+            default:
+                header("HTTP/1.0 401 Unauthorized");
+                echo "ERROR: 401 Unauthorized";
+                die();
+        }
     }
 } 

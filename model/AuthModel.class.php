@@ -19,6 +19,7 @@ class AuthModel {
 
             $currentTime = time();
 
+            var_dump($auth);
             //sessions are valid 15 minutes
             if((strtotime($auth->expire) -$currentTime) > 0)
             {
