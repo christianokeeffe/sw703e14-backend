@@ -2,9 +2,9 @@
 $location = "smartgrid.sql";
 
 $dbhost = "localhost";
-$dbuser = "smartuser";
-$dbpass = "1234";
-$dbname = "smartgrid";
+$dbuser = "okeeffed_sg_user";
+$dbpass = "QAZ^W.AZ;@8W";
+$dbname = "okeeffed_smartgrid";
 
 $mysqli = new mysqli($dbhost,$dbuser,$dbpass,$dbname);
 
