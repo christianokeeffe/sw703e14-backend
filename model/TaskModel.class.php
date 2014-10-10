@@ -11,12 +11,12 @@ class TaskModel {
 
     function getTasksByApplianceId($id, $lang)
     {
-        $results = $this->db->exec("SELECT * FROM tasks NATURAL JOIN translation WHERE refappliance = $id");
+        $results = $this->db->exec("SELECT tasks.id, translation.$lang as name, tasks.executionTime, tasks.refAppliance FROM tasks INNER JOIN translation ON tasks.name = translation.id WHERE tasks.refappliance = $id");
 
         $tasks = array();
         foreach($results as $result)
         {
-            $tasks[count($tasks)] = new Task($result["id"], $result[$lang], $result["executionTime"], $result["refAppliance"]);
+            $tasks[count($tasks)] = new Task($result["id"], $result["name"], $result["executionTime"], $result["refAppliance"]);
         }
 
         return $tasks;
