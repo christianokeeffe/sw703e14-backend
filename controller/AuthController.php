@@ -55,11 +55,11 @@ class ApiAuth extends BaseController {
 
         if($public_key == null)
         {
-            return 0;
+            return '0';
         }
         else if($public_key == 419)
         {
-            return 419;
+            return '419';
         }
         else
         {

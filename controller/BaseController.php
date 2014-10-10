@@ -24,10 +24,7 @@ class BaseController {
         $isvalid = $authController->auth($request);
 
         switch ($isvalid) {
-            case 1:
-                header("HTTP/1.1 200 OK");
-                break;
-            case 0:
+            case '0':
                 if($f3->get('DEBUG') == 2)
                 {
                     echo "request: ";
@@ -38,20 +35,18 @@ class BaseController {
                 echo "ERROR: 401 Unauthorized";
                 die();
                 break;
-            case 419:
+            case '419':
                 header("HTTP/1.0 419 Expired");
                 echo "ERROR: 419 Expired";
                 die();
                 break;
-            case 400:
+            case '400':
                 header("HTTP/1.0 400 Bad Request");
                 echo "ERROR: 400 Bad Request";
                 die();
                 break;
             default:
-                header("HTTP/1.0 401 Unauthorized");
-                echo "ERROR: 401 Unauthorized";
-                die();
+                header("HTTP/1.1 200 OK");
         }
     }
 
@@ -62,28 +57,25 @@ class BaseController {
         $session = $f3->get('PARAMS.session');
         $isvalid = $authController->isValidSession($session);
 
+
         switch ($isvalid) {
-            case 1:
-                header("HTTP/1.1 200 OK");
-            break;
-            case 0:
+            case '0':
                 header("HTTP/1.0 401 Unauthorized");
                 echo "ERROR: 401 Unauthorized";
                 die();
             break;
-            case 419:
+            case '419':
                 header("HTTP/1.0 419 Expired");
                 echo "ERROR: 419 Expired";
                 die();
-            case 400:
+            break;
+            case '400':
                 header("HTTP/1.0 400 Bad Request");
                 echo "ERROR: 400 Bad Request";
                 die();
                 break;
             default:
-                header("HTTP/1.0 401 Unauthorized");
-                echo "ERROR: 401 Unauthorized";
-                die();
+                header("HTTP/1.1 200 OK");
         }
     }
 } 
