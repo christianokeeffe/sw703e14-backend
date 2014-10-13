@@ -218,24 +218,25 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   `id` int(11) NOT NULL,
   `name` int(11) NOT NULL,
   `executionTime` int(11) NOT NULL,
-  `refAppliance` int(11) NOT NULL
+  `refAppliance` int(11) NOT NULL,
+  `updateValue` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Data dump for tabellen `tasks`
 --
 
-INSERT INTO `tasks` (`id`, `name`, `executionTime`, `refAppliance`) VALUES
-(1, 15, 7200, 2),
-(2, 16, 10800, 3),
-(3, 17, 14400, 4),
-(4, 18, 18000, 4),
-(5, 19, 21600, 5),
-(6, 20, 25200, 5),
-(7, 21, 28800, 5),
-(8, 22, 32400, 5),
-(9, 23, 36000, 6),
-(10, 24, 39600, 7);
+INSERT INTO `tasks` (`id`, `name`, `executionTime`, `refAppliance`, `updateValue`) VALUES
+(1, 15, 7200, 2, 20),
+(2, 16, 10800, 3, 20),
+(3, 17, 14400, 4, 20),
+(4, 18, 18000, 4, 20),
+(5, 19, 21600, 5, 20),
+(6, 20, 25200, 5, 20),
+(7, 21, 28800, 5, 20),
+(8, 22, 32400, 5, 20),
+(9, 23, 36000, 6, 20),
+(10, 24, 39600, 7, 20);
 
 -- --------------------------------------------------------
 
