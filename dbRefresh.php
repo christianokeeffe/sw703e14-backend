@@ -33,4 +33,13 @@ $commands = file_get_contents($location);
 
 $mysqli->multi_query($commands);
 
+
+if(isset($_GET["type"]))
+{
+	if($_GET["type"] == "full")
+	{
+		include("importEl.php");
+	}
+}
+
 ?>
