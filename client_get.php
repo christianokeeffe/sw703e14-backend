@@ -73,7 +73,7 @@ $ch = curl_init();
 
 
 // set url
-curl_setopt($ch, CURLOPT_URL, "http://127.0.0.1/backend/task/5/en/" . $sessionKey);
+curl_setopt($ch, CURLOPT_URL, "http://127.0.0.1/backend/gamedata/5/en/" . $sessionKey);
 
 //return the transfer as a string
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

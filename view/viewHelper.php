@@ -11,6 +11,7 @@ function prepareResponse($statusCode, $data)
 function getStatus($code)
 {
     $status_codes[200] = "200 OK";
+    $status_codes[204] = "204 No Content";
     $status_codes[401] = "401 Unauthorized";
     $status_codes[404] = "404 Not Found";
     $status_codes[409] = "409 Conflict";
