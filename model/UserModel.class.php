@@ -51,7 +51,7 @@ class UserModel {
 
     function insertUser($user)
     {
-        $user->password = $this->cryptPassword($user->password);
+        //$user->password = $this->cryptPassword($user->password);
         $this->db->exec("INSERT INTO users (username, password, firstname, lastname, email) VALUES ('$user->username', '$user->password', '$user->firstname', '$user->lastname', '$user->email')");
         $newuser = $this->getUserByEmail($user->email);
         $this->db->exec("INSERT INTO user_appliances (userID, applianceID) VALUES ($newuser->id,1),($newuser->id,2),($newuser->id,3),($newuser->id,4),($newuser->id,5),($newuser->id,6),($newuser->id,7)");
@@ -69,7 +69,7 @@ class UserModel {
 
     function authUser($username, $password)
     {
-        $password = $this->cryptPassword($password);
+        //$password = $this->cryptPassword($password);
 
         $db_user = $this->getUserByEmail($username);
 
