@@ -254,10 +254,10 @@ CREATE TABLE IF NOT EXISTS `market_price` (
 -- --------------------------------------------------------
 
 --
--- Struktur-dump for tabellen `market_data`
+-- Struktur-dump for tabellen `market_price`
 --
 
-CREATE TABLE IF NOT EXISTS `market_data` (
+CREATE TABLE IF NOT EXISTS `market_price` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `time` bigint(20) NOT NULL,
   `price` double NOT NULL,
