@@ -34,14 +34,50 @@ $csvFile = 'MarketData.csv';
 $csv = readCSV($csvFile);
 $table_name = "market_data";
 $mysqli->query("TRUNCATE TABLE " . $table_name);
-echo "Truncated  " . $table_name . "<br />";
+echo "<br/>Truncated  " . $table_name . "<br />";
 ini_set('max_execution_time', 3000); //300 seconds = 5 minutes
 //Loop to insert to DB
 $arraySize=sizeof($csv);
+$qrr = "INSERT INTO " . $table_name . " (`time`, `price`) VALUES ";
+$first = true;
+$prev = 100;
 for($i=2; $i<$arraySize; $i++)
 {
-    $mysqli->query("INSERT INTO " . $table_name . " (`time`, `price`) VALUES (".strtotime($csv[$i][0]." ".$csv[$i][1].":00").",".$csv[$i][2].");");
+    if($first)
+    {
+        $first = false;
+    }
+    else
+    {
+        $qrr = $qrr . ",";
+    }
+
+    if(empty($csv[$i][2]))
+    {
+        $val = $prev;
+    }
+    else
+    {
+        $val = str_replace(",", "", $csv[$i][2]);
+        $prev = $val;
+    }
+
+    $qrr = $qrr . "(".strtotime($csv[$i][0]." ".$csv[$i][1].":00").",".$val.")";
+
+    /*if($i%882 == 0)
+    {
+        if($i == 881)
+        {
+            //echo $qrr;
+        }
+        $mysqli->query($qrr);
+        printf("Affected rows (INSERT): %d\n", $mysqli->affected_rows);
+        $qrr = "INSERT INTO " . $table_name . " (`time`, `price`) VALUES ";
+        $first = true;
+    }*/
 }
+
+$mysqli->query($qrr);
 $i = 5;
 ini_set('max_execution_time', 30); //300 seconds = 5 minutes
-echo "inserted " . $arraySize . " market prices";
+echo "inserted " . $mysqli->affected_rows . " out of ". ($arraySize -2) . " market prices";
