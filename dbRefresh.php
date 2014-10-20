@@ -98,6 +98,7 @@ if(isset($_GET["type"]))
             }*/
         }
         $qrr = $qrr . ";";
+        echo "Imported prices";
         //$mysqli->query($qrr);
 
 	}
