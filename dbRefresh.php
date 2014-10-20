@@ -54,7 +54,8 @@ if(isset($_GET["type"]))
 
         //call the csv reading function
         $csv = readCSV($csvFile);
-        $table_name = "market_data";
+
+        $table_name = "market_price";
    
         //Loop to insert to DB
         $arraySize=sizeof($csv);
