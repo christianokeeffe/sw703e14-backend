@@ -32,7 +32,7 @@ $csvFile = 'MarketData.csv';
 
 //call the csv reading function
 $csv = readCSV($csvFile);
-$table_name = "market_data";
+$table_name = "market_price";
 $mysqli->query("TRUNCATE TABLE " . $table_name);
 echo "<br/>Truncated  " . $table_name . "<br />";
 ini_set('max_execution_time', 3000); //300 seconds = 5 minutes
