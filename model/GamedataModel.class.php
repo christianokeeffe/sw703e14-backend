@@ -18,8 +18,7 @@ class GamedataModel {
 	
 	function getUserByID($userID)
     {
-        $result = $this->db->exec(
-            "SELECT * FROM gamedata WHERE userID =  $userID ORDER BY date DESC");
+        $result = $this->db->exec("SELECT * FROM gamedata WHERE userID =  $userID ORDER BY date DESC");
         
         if(count($result) <= 0)
         {
