@@ -9,10 +9,8 @@ class TaskModel {
         $this->db = $db;
     }
 
-    function getTasksByApplianceId($id, $lang)
+    function formatResult($results)
     {
-        $results = $this->db->exec("SELECT tasks.id, translation.$lang as name, tasks.executionTime, tasks.refAppliance, tasks.updateValue FROM tasks INNER JOIN translation ON tasks.name = translation.id WHERE tasks.refappliance = $id");
-
         $tasks = array();
         foreach($results as $result)
         {
@@ -20,5 +18,19 @@ class TaskModel {
         }
 
         return $tasks;
+    }
+
+    function getTasksByApplianceId($id, $lang)
+    {
+        $results = $this->db->exec("SELECT tasks.id, translation.$lang as name, tasks.executionTime, tasks.refAppliance, tasks.updateValue FROM tasks INNER JOIN translation ON tasks.name = translation.id WHERE tasks.refappliance = $id");
+
+        return $this->formatResult($results);
+    }
+
+    function getTasks($lang)
+    {
+        $results = $this->db->exec("SELECT tasks.id, translation.$lang as name, tasks.executionTime, tasks.refAppliance, tasks.updateValue FROM tasks INNER JOIN translation ON tasks.name = translation.id");
+
+        return $this->formatResult($results);
     }
 }

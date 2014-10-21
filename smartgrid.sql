@@ -238,6 +238,32 @@ INSERT INTO `tasks` (`id`, `name`, `executionTime`, `refAppliance`, `updateValue
 (9, 23, 36000, 6, 20),
 (10, 24, 39600, 7, 20);
 
+-- --------------------------------------------------------
+
+--
+-- Struktur-dump for tabellen `market_price`
+--
+
+CREATE TABLE IF NOT EXISTS `market_price` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `time` bigint(20) NOT NULL,
+  `price` double NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur-dump for tabellen `market_price`
+--
+
+CREATE TABLE IF NOT EXISTS `market_price` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `time` bigint(20) NOT NULL,
+  `price` double NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
