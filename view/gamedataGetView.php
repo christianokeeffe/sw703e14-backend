@@ -8,7 +8,7 @@ $gamedataController = new GamedataController($f3);
 $userID = $f3->get('PARAMS.userID');
 
 
-$data = $gamedataController->getUserByID($userID);
+$data = $gamedataController->getGamedata($userID);
 
 if($data != null)
 {

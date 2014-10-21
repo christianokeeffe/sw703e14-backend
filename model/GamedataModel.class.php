@@ -9,14 +9,14 @@ class GamedataModel {
         $this->db = $db;
     }
 	
-    function insertGame($game)
+    function insertGamedata($game)
     {
         $this->db->exec("INSERT INTO gamedata (userID, date, savings, score) VALUES ('$game->userID', '$game->date', '$game->savings', '$game->score')");
 
-        return $this->getUserByID($game->userID);
+        return $this->getGamedata($game->userID);
     }
 	
-	function getUserByID($userID)
+	function getGamedata($userID)
     {
         $result = $this->db->exec("SELECT * FROM gamedata WHERE userID =  $userID ORDER BY date DESC");
         
