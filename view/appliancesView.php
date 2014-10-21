@@ -6,12 +6,26 @@ $applianceController = new ApplianceController($f3);
 $lang = $f3->get('PARAMS.lang');
 $userID = $f3->get('PARAMS.userID');
 
-if(!empty($lang))
+if($userID == null)
 {
-    echo prepareResponse("200", $applianceController->getAppliances($userID, $lang));
+    if(!empty($lang))
+    {
+        echo prepareResponse("200", $applianceController->getAllAppliances($lang));
+    }
+    else
+    {
+        echo prepareResponse("200", $applianceController->getAllAppliances());
+    }
 }
 else
 {
-    echo prepareResponse("200", $applianceController->getAppliances($userID));
+    if(!empty($lang))
+    {
+        echo prepareResponse("200", $applianceController->getAppliances($userID, $lang));
+    }
+    else
+    {
+        echo prepareResponse("200", $applianceController->getAppliances($userID));
+    }
 }
 ?>

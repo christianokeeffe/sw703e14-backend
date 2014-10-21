@@ -15,4 +15,10 @@ class ApplianceController extends BaseController {
         $appliance = new ApplianceModel($this->db);
         return $appliance->getAppliances($userID,$lang);
     }
+
+    function getAllAppliances($lang = 'en')
+    {
+        $appliance = new ApplianceModel($this->db);
+        return $appliance->getAllAppliances($lang);
+    }
 } 
