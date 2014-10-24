@@ -60,7 +60,7 @@ class UserModel {
 
     function validateInputs($user)
     {
-        if($this->getUserByEmail($user->email) != null)
+        if($this->getUserByEmail($user->email) != null || $this->getUserByUsername($user->username) != null)
         {
             return false;
         }
