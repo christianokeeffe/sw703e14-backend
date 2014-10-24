@@ -49,4 +49,18 @@ class ApplianceModel {
             }
             return $appliances;
         }
+
+        function getAllAppliancesByID($type,$lang){
+            $allAppliances  = $this->getAllAppliances($lang);
+
+            $appliances = array();
+            foreach($allAppliances as $appliance)
+            {
+                if($appliance->type == $type)
+                {
+                    $appliances[count($appliances)] = new Appliance($appliance->id, $appliance->name, $appliance->price, $appliance->energyLabel, $appliance->energyConsumption, $appliance->type);
+                }
+            }
+            return $appliances;
+        }
 } 
