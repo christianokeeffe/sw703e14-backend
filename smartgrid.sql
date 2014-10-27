@@ -250,19 +250,7 @@ CREATE TABLE IF NOT EXISTS `market_price` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `time` bigint(20) NOT NULL,
   `price` double NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Struktur-dump for tabellen `market_price`
---
-
-CREATE TABLE IF NOT EXISTS `market_price` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `time` bigint(20) NOT NULL,
-  `price` double NOT NULL,
+  `solar_price_per_unit` double NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
