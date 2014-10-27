@@ -30,22 +30,23 @@ class ApplianceModel {
 
             foreach($results as $result)
             {
-                $appliances[count($appliances)] = new Appliance($result["id"], $result["name"], $result["price"], $result["energyLabel"], $result["energyConsumption"], $result["type"]);
+                $appliances[count($appliances)] = new Appliance($result["id"], $result["name"], $result["price"], $result["energyLabel"], $result["energyConsumption"], $result["type"], "");
             }
             return $appliances;
         }
 
         function getAllAppliances($lang){
-            $results = $this->db->exec("SELECT appliances.id, name.$lang AS name, appliances.energyConsumption, appliances.energyLabel, appliances.price, type
+            $results = $this->db->exec("SELECT appliances.id, name.$lang AS name, appliances.energyConsumption, appliances.energyLabel, appliances.price, type, selType.$lang
             FROM appliances
             INNER JOIN translation AS name
-            ON name.id = appliances.name;");
+            ON name.id = appliances.name
+			INNER JOIN (SELECT typeID, id, en, da FROM smartgrid.appliance_type INNER JOIN translation as name on name.id = appliance_type.typeID) AS selType ON selType.typeID = appliances.type");
 
             $appliances = array();
 
             foreach($results as $result)
             {
-                $appliances[count($appliances)] = new Appliance($result["id"], $result["name"], $result["price"], $result["energyLabel"], $result["energyConsumption"], $result["type"]);
+                $appliances[count($appliances)] = new Appliance($result["id"], $result["name"], $result["price"], $result["energyLabel"], $result["energyConsumption"], $result["type"], $result[$lang]);
             }
             return $appliances;
         }
@@ -58,7 +59,7 @@ class ApplianceModel {
             {
                 if($appliance->type == $type)
                 {
-                    $appliances[count($appliances)] = new Appliance($appliance->id, $appliance->name, $appliance->price, $appliance->energyLabel, $appliance->energyConsumption, $appliance->type);
+                    $appliances[count($appliances)] = new Appliance($appliance->id, $appliance->name, $appliance->price, $appliance->energyLabel, $appliance->energyConsumption, $appliance->type, $appliance->typeString);
                 }
             }
             return $appliances;

@@ -6,8 +6,9 @@ class Appliance {
 	var $energyLabel;
 	var $energyConsumption;
 	var $type;
+    var $typeString;
 
-    function __construct($id, $name, $price, $energyLabel, $energyConsumption, $type)
+    function __construct($id, $name, $price, $energyLabel, $energyConsumption, $type, $typeString)
     {
         $this->id = $id;
         $this->name = $name;
@@ -15,6 +16,7 @@ class Appliance {
 		$this->energyLabel = $energyLabel;
 		$this->energyConsumption = $energyConsumption;
 		$this->type = $type;
+        $this->typeString = $typeString;
     }
 }
 ?>
