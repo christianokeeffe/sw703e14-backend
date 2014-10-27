@@ -17,20 +17,21 @@ class ApplianceModel {
 
     function getAppliances($userID, $lang){
             $results = $this->db->exec(
-            "SELECT appliances.id, name.$lang AS name, appliances.type AS type, appliances.energyConsumption, appliances.energyLabel, appliances.price
+            "SELECT appliances.id, name.$lang AS name, appliances.type AS type, appliances.energyConsumption, appliances.energyLabel, appliances.price, selType.$lang
         FROM appliances
         INNER JOIN user_appliances
         ON appliances.id=user_appliances.applianceID  AND user_appliances.userID = $userID
         INNER JOIN translation AS name
         ON name.id = appliances.name
         INNER JOIN appliance_type
-        ON appliances.type = appliance_type.typeID;");
+        ON appliances.type = appliance_type.typeID
+		INNER JOIN (SELECT typeID, id, en, da FROM smartgrid.appliance_type INNER JOIN translation as name on name.id = appliance_type.typeID) AS selType ON selType.typeID = appliances.type");
 
             $appliances = array();
 
             foreach($results as $result)
             {
-                $appliances[count($appliances)] = new Appliance($result["id"], $result["name"], $result["price"], $result["energyLabel"], $result["energyConsumption"], $result["type"], "");
+                $appliances[count($appliances)] = new Appliance($result["id"], $result["name"], $result["price"], $result["energyLabel"], $result["energyConsumption"], $result["type"], $result[$lang]);
             }
             return $appliances;
         }
