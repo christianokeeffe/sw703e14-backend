@@ -163,10 +163,14 @@ INSERT INTO `translation` (`id`, `en`, `da`) VALUES
 (18, 'Extra dry', 'Ekstra tør'),
 (19, 'Make breakfast', 'Lav morgenmad'),
 (20, 'Make lunch', 'Lav frokost'),
-(21, 'Make supper', 'Lav aftensmad'),
+(21, 'Make dinner', 'Lav aftensmad'),
 (22, 'Bake cake', 'Bag kage'),
 (23, 'Wash dishes', 'Start opvaskmaskinen'),
-(24, 'Clean house', 'Gør rent');
+(24, 'Clean house', 'Gør rent'),
+(25, 'Make breakfast', 'Lav morgenmad'),
+(26, 'Make lunch', 'Lav frokost'),
+(27, 'Make dinner', 'Lav aftensmad'),
+(28, 'Charge car', 'Oplad bilen');
 
 -- --------------------------------------------------------
 
@@ -217,12 +221,13 @@ INSERT INTO `user_appliances` (`userID`, `applianceID`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `tasks` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` int(11) NOT NULL,
   `executionTime` int(11) NOT NULL,
   `refAppliance` int(11) NOT NULL,
-  `updateValue` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updateValue` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Data dump for tabellen `tasks`
@@ -243,6 +248,32 @@ INSERT INTO `tasks` (`id`, `name`, `executionTime`, `refAppliance`, `updateValue
 -- --------------------------------------------------------
 
 --
+-- Struktur-dump for tabellen `daily_task`
+--
+
+CREATE TABLE IF NOT EXISTS `daily_task` (
+  `id` int(11) NOT NULL  AUTO_INCREMENT,
+  `name` int(11) NOT NULL,
+  `taskID` int(11) NOT NULL,
+  `deadline` text NOT NULL,
+  `startTime` int(11) NOT NULL,
+  `endTime` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Data dump for tabellen `daily_task`
+--
+
+INSERT INTO `daily_task` (`name`, `taskID`, `deadline`, `startTime`, `endTime`) VALUES
+(25, 5, '5:00 - 10:00', 300, 600),
+(26, 6, '11:00 - 14:00', 660, 840),
+(27, 7, '17:00 - 21:00', 1020 , 1260),
+(28, 1, 'Min. 80% - 7:00', 0 , 420);
+
+-- --------------------------------------------------------
+
+--
 -- Struktur-dump for tabellen `market_price`
 --
 
@@ -257,3 +288,5 @@ CREATE TABLE IF NOT EXISTS `market_price` (
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
