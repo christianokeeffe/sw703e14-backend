@@ -170,7 +170,14 @@ INSERT INTO `translation` (`id`, `en`, `da`) VALUES
 (25, 'Make breakfast', 'Lav morgenmad'),
 (26, 'Make lunch', 'Lav frokost'),
 (27, 'Make dinner', 'Lav aftensmad'),
-(28, 'Charge car', 'Oplad bilen');
+(28, 'Charge car', 'Oplad bilen'),
+(29, 'Bake cake', 'Bag kage'),
+(30, 'Clean the house', 'Gør rent i huset'),
+(31, 'Wash clothes', 'Vask tøj'),
+(32, 'Wash dishes', 'Start opvaskmaskinen'),
+(33, 'Once daily', 'En gang om dagen'),
+(34, 'Once weekly', 'En gang om ugen'),
+(35, 'Twice weekly', 'To gange om ugen');
 
 -- --------------------------------------------------------
 
@@ -270,6 +277,32 @@ INSERT INTO `daily_task` (`name`, `taskID`, `deadline`, `startTime`, `endTime`) 
 (26, 6, '11:00 - 14:00', 660, 840),
 (27, 7, '17:00 - 21:00', 1020 , 1260),
 (28, 1, 'Min. 80% - 7:00', 0 , 420);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur-dump for tabellen `optional_task`
+--
+
+CREATE TABLE IF NOT EXISTS `optional_task` (
+  `id` int(11) NOT NULL  AUTO_INCREMENT,
+  `name` int(11) NOT NULL,
+  `taskID` int(11) NOT NULL,
+  `deadline` int(11) NOT NULL,
+  `type` text NOT NULL,
+  `times` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Data dump for tabellen `optional_task`
+--
+
+INSERT INTO `optional_task` (`name`, `taskID`, `deadline`, `type`, `times`) VALUES
+(29, 8, 33, 'Daily', 1),
+(30, 10, 34, 'Weekly', 1),
+(31, 2, 35, 'Weekly', 2),
+(32, 9, 35, 'Weekly', 2);
 
 -- --------------------------------------------------------
 
