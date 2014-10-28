@@ -225,7 +225,8 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   `name` int(11) NOT NULL,
   `executionTime` int(11) NOT NULL,
   `refAppliance` int(11) NOT NULL,
-  `updateValue` int(11) NOT NULL
+  `updateValue` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
@@ -256,7 +257,8 @@ CREATE TABLE IF NOT EXISTS `daily_task` (
   `taskID` int(11) NOT NULL,
   `deadline` text NOT NULL,
   `startTime` int(11) NOT NULL,
-  `endTime` int(11) NOT NULL
+  `endTime` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
@@ -266,7 +268,7 @@ CREATE TABLE IF NOT EXISTS `daily_task` (
 INSERT INTO `daily_task` (`name`, `taskID`, `deadline`, `startTime`, `endTime`) VALUES
 (25, 5, '5:00 - 10:00', 300, 600),
 (26, 6, '11:00 - 14:00', 660, 840),
-(27, 7, '17:00 - 21:00', 1020 , 1260)
+(27, 7, '17:00 - 21:00', 1020 , 1260),
 (28, 1, 'Min. 80% - 7:00', 0 , 420);
 
 -- --------------------------------------------------------

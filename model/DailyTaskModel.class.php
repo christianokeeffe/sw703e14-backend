@@ -9,7 +9,7 @@ class DailyTaskModel {
         $this->db = $db;
     }
 
-    function formatResult($result)
+    function formatResult($results)
     {
         $daily_task = array();
         foreach ($results as $result)
@@ -23,7 +23,7 @@ class DailyTaskModel {
 
     function getDailyTasks($lang)
     {
-        $result = $this->db->exec("SELECT daily_task.id, translation.$lang as name, daily_task.taskID, daily_task.deadline, daily_task.startTime, daily_task.endTime
+        $results = $this->db->exec("SELECT daily_task.id, translation.$lang as name, daily_task.taskID, daily_task.deadline, daily_task.startTime, daily_task.endTime
             FROM daily_task INNER JOIN translation ON daily_task.name = translation.id");
 
         return $this->formatResult($results);
