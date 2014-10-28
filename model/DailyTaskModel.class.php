@@ -1,7 +1,7 @@
 <?php
-require_once "metadata/DailyOptionalTask.class.php";
+require_once "metadata/DailyTask.class.php";
 
-class DailyOptionalTaskModel {
+class DailyTaskModel {
     var $db;
 
     function __construct($db)
@@ -14,14 +14,14 @@ class DailyOptionalTaskModel {
         $daily_task = array();
         foreach ($results as $result)
         {
-            $daily_task[count($daily_task)] = new DailyOptionalTask($result["id"], $result["name"], $result["taskID"], $result["deadline"], $result["startTime"],
+            $daily_task[count($daily_task)] = new DailyTask($result["id"], $result["name"], $result["taskID"], $result["deadline"], $result["startTime"],
                 $result["endTime"]);
         }
 
         return $daily_task;
     }
 
-    function getDailyOptionalTasks($lang)
+    function getDailyTasks($lang)
     {
         $result = $this->db->exec("SELECT daily_task.id, translation.$lang as name, daily_task.taskID, daily_task.deadline, daily_task.startTime, daily_task.endTime
             FROM daily_task INNER JOIN translation ON daily_task.name = translation.id");

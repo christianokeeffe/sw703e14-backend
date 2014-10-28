@@ -1,6 +1,6 @@
 <?php
 
-class DailyOptionalTask {
+class DailyTask {
 	var $id;
 	var $name;
 	var $taskID;
