@@ -7,8 +7,10 @@ class DailyTask {
 	var $deadline;
 	var $startTime;
 	var $endTime;
+	var $reward;
+	var $penalty;
 
-	function __construct($id, $name, $taskID, $deadline, $startTime, $endTime)
+	function __construct($id, $name, $taskID, $deadline, $startTime, $endTime, $reward, $penalty)
 	{
 		$this->id = $id;
 		$this->name = $name;
@@ -16,6 +18,8 @@ class DailyTask {
 		$this->deadline = $deadline;
 		$this->startTime = $startTime;
 		$this->endTime = $endTime;
+		$this->reward = $reward;
+		$this->penalty = $penalty;
 	}
 }
 ?>

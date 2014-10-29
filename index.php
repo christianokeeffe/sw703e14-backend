@@ -26,6 +26,7 @@ include_once "routes_task.php";
 include_once "routes_gamedata.php";
 include_once "routes_marketprice.php";
 include_once "routes_dailyTask.php";
+include_once "routes_optionalTask.php";
 
 $f3->run();
 ?>
