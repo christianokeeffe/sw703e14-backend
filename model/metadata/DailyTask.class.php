@@ -8,7 +8,7 @@ class DailyTask {
 	var $startTime;
 	var $endTime;
 	var $reward;
-	var $penalty
+	var $penalty;
 
 	function __construct($id, $name, $taskID, $deadline, $startTime, $endTime, $reward, $penalty)
 	{
