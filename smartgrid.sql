@@ -185,7 +185,7 @@ INSERT INTO `translation` (`id`, `en`, `da`) VALUES
 (32, 'Wash dishes', 'Start opvaskmaskinen'),
 (33, 'Once daily', 'En gang om dagen'),
 (34, 'Once weekly', 'En gang om ugen'),
-(35, 'Twice weekly', 'To gange om ugen',
+(35, 'Twice weekly', 'To gange om ugen'),
 (36, 'Do manual', 'Udfør manuelt'),
 (37, 'Do manual', 'Udfør manuelt'),
 (38, 'Vestfrost CW 250 R', 'Vestfrost CW 250 R'),
