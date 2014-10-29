@@ -15,18 +15,18 @@ class OptionalTaskModel {
         foreach ($results as $result)
         {
             $optional_task[count($optional_task)] = new OptionalTask($result["id"], $result["name"], $result["taskID"], $result["type"], $result["times"],
-                $result["endTime"]);
+                $result["endTime"], $result["reward"]);
         }
 
         return $optional_task;
     }
 
-    function getDailyTasks($lang)
+    function getOptionalTasks($lang)
     {
-        $results = $this->db->exec("SELECT daily_task.id, name.$lang as name, daily_task.taskID, daily_task.deadline, type.$lang as type, daily_task.times
-            FROM daily_task
+        $results = $this->db->exec("SELECT optional_task.id, name.$lang as name, optional_task.taskID, optional_task.deadline, type.$lang as type, optional_task.times, optional_task.reward
+            FROM optional_task
             INNER JOIN translation AS name 
-                ON daily_task.name = translation.id 
+                ON optional_task.name = translation.id 
             INNER JOIN translation AS type 
                 ON optional_task.type = translation.id");
 
