@@ -50,8 +50,8 @@ CREATE TABLE IF NOT EXISTS `appliances` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `name` int(255) NOT NULL,
   `price` int(11) NOT NULL,
-  `energyLabel` varchar(3) NOT NULL,
-  `energyConsumption` int(11) NOT NULL,
+  `energyLabel` varchar(4) NOT NULL,
+  `energyConsumption` float(11) NOT NULL,
   `type` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
@@ -61,13 +61,18 @@ CREATE TABLE IF NOT EXISTS `appliances` (
 --
 
 INSERT INTO `appliances` (`id`, `name`, `price`, `energyLabel`, `energyConsumption`, `type`) VALUES
-(1, 8, 0, 'g', 100, 1),
-(2, 9, 0, 'g', 100, 2),
-(3, 10, 0, 'g', 100, 3),
-(4, 11, 0, 'g', 400, 4),
-(5, 12, 0, 'g', 100, 5),
-(6, 13, 0, 'g', 100, 6),
-(7, 14, 0, 'g', 100, 7);
+(1, 8, 0, 'E', 300/8765, 1),
+(2, 9, 0, 'E', 100, 2),
+(3, 10, 0, 'E', 100, 3),
+(4, 11, 0, 'E', 400, 4),
+(5, 12, 0, 'E', 100, 5),
+(6, 13, 0, 'E', 100, 6),
+(7, 14, 0, 'E', 100, 7),
+(8, 37, 0, 'A+++',0,8),
+(9, 38, 3205, 'A', 157/8765, 1),
+(10, 39, 3500, 'A+', 130/8765, 1),
+(11, 40, 3999, 'A++', 105/8765, 1),
+(12, 41, 12966, 'A+++', 83/8765, 1);
 
 -- --------------------------------------------------------
 
@@ -92,7 +97,8 @@ INSERT INTO `appliance_type` (`typeID`, `type`) VALUES
 (4, 4),
 (5, 5),
 (6, 6),
-(7, 7);
+(7, 7),s
+(8, 36);
 
 -- --------------------------------------------------------
 
@@ -160,7 +166,7 @@ INSERT INTO `translation` (`id`, `en`, `da`) VALUES
 (15, 'Charge', 'Oplade'),
 (16, 'Wash clothes', 'Vask tøj'),
 (17, 'Dry', 'Tør'),
-(18, 'Extra dry', 'Ekstra tør'),
+(18, 'Dry by hand', 'Hæng vasketøj op'),
 (19, 'Make breakfast', 'Lav morgenmad'),
 (20, 'Make lunch', 'Lav frokost'),
 (21, 'Make dinner', 'Lav aftensmad'),
@@ -177,7 +183,9 @@ INSERT INTO `translation` (`id`, `en`, `da`) VALUES
 (32, 'Wash dishes', 'Start opvaskmaskinen'),
 (33, 'Once daily', 'En gang om dagen'),
 (34, 'Once weekly', 'En gang om ugen'),
-(35, 'Twice weekly', 'To gange om ugen');
+(35, 'Twice weekly', 'To gange om ugen',
+(36, 'Do manual', 'Udfør manuelt'),
+(37, 'Do manual', 'Udfør manuelt');
 
 -- --------------------------------------------------------
 
@@ -302,10 +310,10 @@ CREATE TABLE IF NOT EXISTS `optional_task` (
 --
 
 INSERT INTO `optional_task` (`name`, `taskID`, `deadline`, `type`, `times`, `reward`) VALUES
-(29, 8, 33, 'Daily', 1, 500),
-(30, 10, 34, 'Weekly', 1, 500),
-(31, 2, 35, 'Weekly', 2, 500),
-(32, 9, 35, 'Weekly', 2, 500);
+(29, 8, 33, 'd', 1, 500),
+(30, 10, 34, 'w', 1, 500),
+(31, 2, 35, 'w', 2, 500),
+(32, 9, 35, 'w', 2, 500);
 
 -- --------------------------------------------------------
 
