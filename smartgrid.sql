@@ -73,7 +73,8 @@ INSERT INTO `appliances` (`id`, `name`, `price`, `energyLabel`, `energyConsumpti
 (10, 39, 3500, 'A+', 130/8765, 1),
 (11, 40, 3999, 'A++', 105/8765, 1),
 (12, 41, 12966, 'A+++', 83/8765, 1),
-(13, 42, 0, '', 8, 2);
+(13, 42, 161400, '', 8, 2),
+(14, 43, 209690, '', 10, 2);
 
 -- --------------------------------------------------------
 
@@ -184,9 +185,15 @@ INSERT INTO `translation` (`id`, `en`, `da`) VALUES
 (32, 'Wash dishes', 'Start opvaskmaskinen'),
 (33, 'Once daily', 'En gang om dagen'),
 (34, 'Once weekly', 'En gang om ugen'),
-(35, 'Twice weekly', 'To gange om ugen'),
+(35, 'Twice weekly', 'To gange om ugen',
 (36, 'Do manual', 'Udfør manuelt'),
-(37, 'Do manual', 'Udfør manuelt');
+(37, 'Do manual', 'Udfør manuelt'),
+(38, 'Vestfrost CW 250 R', 'Vestfrost CW 250 R'),
+(39, 'Electrolux ERF2504AOW', 'Electrolux ERF2504AOW'),
+(40, 'Bosch KIR41AF30', 'Bosch KIR41AF30'),
+(41, 'LiebHerr IKBP 2750-20', 'LiebHerr IKBP 2750-20'),
+(42, 'Renault Zoe', 'Renault Zoe'),
+(43, 'Nissan Leaf', 'Nissan Leaf');
 
 -- --------------------------------------------------------
 
