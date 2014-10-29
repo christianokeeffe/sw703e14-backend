@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `appliances` (
 
 INSERT INTO `appliances` (`id`, `name`, `price`, `energyLabel`, `energyConsumption`, `type`) VALUES
 (1, 8, 0, 'E', 300/8765, 1),
-(2, 9, 0, ' s', 30, 2),
+(2, 9, 0, '', 30, 2),
 (3, 10, 0, 'E', 100, 3),
 (4, 11, 0, 'E', 400, 4),
 (5, 12, 0, 'E', 100, 5),
@@ -73,7 +73,7 @@ INSERT INTO `appliances` (`id`, `name`, `price`, `energyLabel`, `energyConsumpti
 (10, 39, 3500, 'A+', 130/8765, 1),
 (11, 40, 3999, 'A++', 105/8765, 1),
 (12, 41, 12966, 'A+++', 83/8765, 1),
-(13, 42, 0, ' ', 8, 2);
+(13, 42, 0, '', 8, 2);
 
 -- --------------------------------------------------------
 
@@ -184,7 +184,7 @@ INSERT INTO `translation` (`id`, `en`, `da`) VALUES
 (32, 'Wash dishes', 'Start opvaskmaskinen'),
 (33, 'Once daily', 'En gang om dagen'),
 (34, 'Once weekly', 'En gang om ugen'),
-(35, 'Twice weekly', 'To gange om ugen',
+(35, 'Twice weekly', 'To gange om ugen'),
 (36, 'Do manual', 'Udfør manuelt'),
 (37, 'Do manual', 'Udfør manuelt');
 
