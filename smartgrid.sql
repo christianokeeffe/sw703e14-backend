@@ -63,18 +63,30 @@ CREATE TABLE IF NOT EXISTS `appliances` (
 INSERT INTO `appliances` (`id`, `name`, `price`, `energyLabel`, `energyConsumption`, `type`) VALUES
 (1, 8, 0, 'E', 300/8765, 1),
 (2, 9, 0, '', 30, 2),
-(3, 10, 0, 'E', 100, 3),
-(4, 11, 0, 'E', 400, 4),
-(5, 12, 0, 'E', 100, 5),
-(6, 13, 0, 'E', 100, 6),
-(7, 14, 0, 'E', 100, 7),
+(3, 10, 0, 'E', 50, 3),
+(4, 11, 0, 'E', 30, 4),
+(5, 12, 0, 'E', 15, 5),
+(6, 13, 0, 'E', 10, 6),
+(7, 14, 0, 'E', 10, 7),
 (8, 37, 0, 'A+++',0,8),
 (9, 38, 3205, 'A', 157/8765, 1),
 (10, 39, 3500, 'A+', 130/8765, 1),
 (11, 40, 3999, 'A++', 105/8765, 1),
 (12, 41, 12966, 'A+++', 83/8765, 1),
 (13, 42, 161400, '', 8, 2),
-(14, 43, 209690, '', 10, 2);
+(14, 43, 209690, '', 10, 2),
+(15, 44, 1699, 'A+', 12.2, 3),
+(16, 45, 2299, 'A++', 2.1, 3),
+(17, 46, 3499, 'A+++', 0.84, 3),
+(18, 47, 1999, 'C', 4, 4),
+(19, 48, 2992, 'A+', 2.9, 4),
+(20, 49, 4999, 'A++', 1.8, 4),
+(21, 50, 2280, 'A', 1.05, 6),
+(22, 51, 3309, 'A++', 1.04, 6),
+(23, 52, 8052, 'A+++', 0.81, 6),
+(24, 53, 949, 'C', 2, 7),
+(25, 54, 1248, 'B', 1, 7),
+(26, 55, 1999, 'A', 0.65, 8);
 
 -- --------------------------------------------------------
 
@@ -193,7 +205,19 @@ INSERT INTO `translation` (`id`, `en`, `da`) VALUES
 (40, 'Bosch KIR41AF30', 'Bosch KIR41AF30'),
 (41, 'LiebHerr IKBP 2750-20', 'LiebHerr IKBP 2750-20'),
 (42, 'Renault Zoe', 'Renault Zoe'),
-(43, 'Nissan Leaf', 'Nissan Leaf');
+(43, 'Nissan Leaf', 'Nissan Leaf'),
+(44, 'Matsui M510WM13E', 'Matsui M510WM13E'),
+(45, 'Electrolux Inspiration EWP1672TDW', 'Electrolux Inspiration EWP1672TDW'),
+(46, 'Gorenje vaskemaskine W87443', 'Gorenje vaskemaskine W87443'),
+(47, 'Hotpoint tørretumbler TVM 70C P/Z', 'Hotpoint tørretumbler TVM 70C P/Z'),
+(48, 'Beko tørretumbler DPU7340X', 'Beko tørretumbler DPU7340X'),
+(49, 'Gorenje tørretumbler D88565N', 'Gorenje tørretumbler D88565N'),
+(50, 'Scandomestic SFO 3500', 'Scandomestic SFO 3500'),
+(51, 'Candy CDPM 65720', 'Candy CDPM 65720'),
+(52, 'SMEG BLV2P-2', 'SMEG BLV2P-2'),
+(53, 'Hoover støvsuger TFV2016', 'Hoover støvsuger TFV2016'),
+(54, 'Electrolux UltraSilencer Green støvsuger', 'Electrolux UltraSilencer Green støvsuger'),
+(55, 'Philips PerformerExpert støvsuger FC8721', 'Philips PerformerExpert støvsuger FC8721');
 
 -- --------------------------------------------------------
 
