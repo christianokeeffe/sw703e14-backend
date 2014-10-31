@@ -395,8 +395,8 @@ CREATE TABLE IF NOT EXISTS `market_price` (
 CREATE TABLE IF NOT EXISTS `settings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userID` int(20) NOT NULL,
-  `prefid` text NOT NULL,
-  `value` text NOT NULL
+  `prefname` text NOT NULL,
+  `value` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
