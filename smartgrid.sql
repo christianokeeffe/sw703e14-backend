@@ -251,7 +251,7 @@ INSERT INTO `users` (`username`, `password`, `firstname`, `lastname`, `email`) V
 ('chro', '1234', 'Christian', 'OKeeffe', 'christianokeeffe@gmail.com'),
 ('dude', '1234', 'Christian', 'OKeeffe', 'christianokeeffe@gmail.com'),
 ('handsome', '1234', 'Christian', 'OKeeffe', 'christianokeeffe@gmail.com'),
-('mettemuzen', 'mette', 'Christian', 'OKeeffe', 'christianokeeffe@gmail.com'),
+('mettemuzen', 'mette', 'Mette', 'Pedersen', 'vistimette@gmail.com'),
 ('kapper', '1234', 'Christian', 'OKeeffe', 'christianokeeffe@gmail.com'),
 ('gerda', '1234', 'Christian', 'OKeeffe', 'christianokeeffe@gmail.com');
 
