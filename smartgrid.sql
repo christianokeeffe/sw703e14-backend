@@ -142,6 +142,7 @@ CREATE TABLE IF NOT EXISTS `graphdata` (
   PRIMARY KEY (`saveID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------
+
 --
 -- Struktur-dump for tabellen `gamedata`
 --
@@ -158,6 +159,18 @@ CREATE TABLE IF NOT EXISTS `gamedata` (
   PRIMARY KEY (`saveID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 -- --------------------------------------------------------
+
+--
+-- Data dump for tabellen `gamedata`
+--
+INSERT INTO `gamedata` (`userID`,`date`, `savings`, `score`, `dishes`, `laundry`, `hygiene`) VALUES
+(1, 1409565600, 0, 0, 100, 100, 100),
+(2, 1409565600, 0, 0, 100, 100, 100),
+(3, 1409565600, 0, 0, 100, 100, 100),
+(4, 1409565600, 0, 0, 100, 100, 100),
+(5, 1409565600, 0, 0, 100, 100, 100),
+(6, 1409565600, 0, 0, 100, 100, 100);
+-- -------------------------------------------------------
 
 --
 -- Struktur-dump for tabellen `translation`

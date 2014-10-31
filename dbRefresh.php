@@ -139,8 +139,22 @@ $commands = file_get_contents($location) . $qrr;
 
 $mysqli->multi_query($commands);
 if ($mysqli->errno) { 
-   echo "Stopped while retrieving result : ".$mysqli->error."</br>"; 
+   echo "Stopped while retrieving result : ".$mysqli->error."</br>"; die();
 }
+while($mysqli->more_results())
+{
+    $mysqli->next_result();
+    if($res = $mysqli->store_result()) // added closing bracket
+    {
+        $res->free(); 
+    }
+    if ($mysqli->errno) { 
+
+    echo "Stopped while retrieving result : ".$mysqli->error."</br>";
+    die();
+    }
+}
+
 
 $qrr = "";
 $arraySize=sizeof($solarprices);
