@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `appliances` (
 
 INSERT INTO `appliances` (`id`, `name`, `price`, `energyLabel`, `energyConsumption`, `type`, `passive`) VALUES
 (1, 8, 0, 'E', 300/8765, 1, 1),
-(2, 9, 0, '', 30, 2, 0),
+(2, 9, 0, '', 15, 2, 0),
 (3, 10, 0, 'E', 50, 3, 0),
 (4, 11, 0, 'E', 30, 4, 0),
 (5, 12, 0, 'E', 15, 5, 0),
