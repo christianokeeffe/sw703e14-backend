@@ -2,12 +2,11 @@
 require_once "controller/SettingsController.php";
 include_once "viewHelper.php";
 
-$userController = new UserController($f3);
+$settingsController = new SettingsController($f3);
 
-$username = $lang = $f3->get('PARAMS.username');
-$password = $lang = $f3->get('PARAMS.password');
+$prefname = $lang = $f3->get('PARAMS.prefname');
 
-$data = $userController->authUser($username, $password);
+$data = $settingsController->getSettingByPrefName($prefname);
 
 if($data != null)
 {

@@ -28,6 +28,7 @@ include_once "routes_marketprice.php";
 include_once "routes_dailyTask.php";
 include_once "routes_optionalTask.php";
 include_once "routes_graphdata.php";
+include_once "routes_settings.php";
 
 $f3->run();
 ?>

@@ -4,9 +4,9 @@ require_once "BaseController.php";
 
 class SettingsController extends BaseController {
 
-    function getTasksByApplianceId($id, $lang = 'en')
+    function getSettingByPrefName($prefname)
     {
-        $task_model = new TaskModel($this->db);
-        return $task_model->getTasksByApplianceId($id,$lang);
+        $setting_model = new SettingsModel($this->db);
+        return $setting_model->getSettingByPrefname($prefname);
     }
 }
