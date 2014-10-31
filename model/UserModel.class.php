@@ -55,6 +55,7 @@ class UserModel {
         $this->db->exec("INSERT INTO users (username, password, firstname, lastname, email) VALUES ('$user->username', '$user->password', '$user->firstname', '$user->lastname', '$user->email')");
         $newuser = $this->getUserByEmail($user->email);
         $this->db->exec("INSERT INTO user_appliances (userID, applianceID) VALUES ($newuser->id,1),($newuser->id,2),($newuser->id,3),($newuser->id,4),($newuser->id,5),($newuser->id,6),($newuser->id,7),($newuser->id,8)");
+        $this->db->exec("INSERT INTO gamedata (userID, date, savings, score, dishes, laundry, hygiene) VALUES ('$newuser->id', 1409565600, 0, 0, 100, 100, 100)");
         return $this->getUserByEmail($user->email);
     }
 

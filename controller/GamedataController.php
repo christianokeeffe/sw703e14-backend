@@ -10,12 +10,11 @@ class GamedataController extends BaseController {
         return $gamedataModel->getGamedata($userID);
     }
 	
-    function insertGamedata($game)
+    function updateGamedata($game)
     {
         $gamedataModel = new gamedataModel($this->db);
-
-        return $gamedataModel->insertGamedata($game);
+        return $gamedataModel->updateGamedata($game);
         
-    } 
+    }
 	
 }

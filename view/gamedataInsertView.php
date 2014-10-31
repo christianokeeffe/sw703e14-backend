@@ -8,7 +8,7 @@ $json_decoded = json_decode($f3->get('BODY'), true);
 
 $game = json_decode($json_decoded['request']);
 
-$data = $gamedataController->insertGamedata($game->game);
+$data = $gamedataController->updateGamedata($game->game);
 
 if($data != null)
 {

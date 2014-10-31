@@ -1,13 +1,13 @@
 <?php
-require_once "controller/GamedataController.php";
+require_once "controller/GraphdataController.php";
 include_once "viewHelper.php";
 
-$gamedataController = new GamedataController($f3);
+$graphdataController = new GraphdataController($f3);
 
 $userID = $f3->get('PARAMS.userID');
 
 
-$data = $gamedataController->getGamedata($userID);
+$data = $graphdataController->getGraphdata($userID);
 
 if($data != null)
 {

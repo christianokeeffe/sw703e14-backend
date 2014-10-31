@@ -129,7 +129,18 @@ CREATE TABLE IF NOT EXISTS `auth` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
+--
+-- Struktur-dump for tabellen `graphdata`
+--
 
+CREATE TABLE IF NOT EXISTS `graphdata` (
+  `saveID` int(11) NOT NULL AUTO_INCREMENT,
+  `userID` int(11) NOT NULL,
+  `score` int(11) NOT NULL,
+  `date` int(11) NOT NULL,
+  PRIMARY KEY (`saveID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+-- --------------------------------------------------------
 --
 -- Struktur-dump for tabellen `gamedata`
 --
