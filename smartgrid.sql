@@ -188,7 +188,7 @@ CREATE TABLE IF NOT EXISTS `translation` (
 --
 
 INSERT INTO `translation` (`id`, `en`, `da`) VALUES
-(1, 'Refrigerator', 'Køleskab'),
+(1, 'Fridge Freezer', 'Kølefryseskab'),
 (2, 'Car', 'Bil'),
 (3, 'Washer', 'Vaskemaskine'),
 (4, 'Dryer', 'Tørretumbler'),
