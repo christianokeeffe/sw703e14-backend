@@ -31,20 +31,18 @@ $sessionKey = $session->session;
 
 //---------------------------------------------------
 
-/*
-require_once "model/metadata/User.class.php";
 
-$user = new User(0, "username", "password", "firstname", "lastname", "email");
+require_once "model/metadata/UserAppliance.class.php";
 
+$user_appliance = new UserAppliance(3, [1, 2, 3, 4, 10, 6, 7, 8]);
 
 $request = json_encode(array(
-    'user' => $user
+    'user_appliance' => $user_appliance
 ));
 
 $hash = hash_hmac('sha256', $request, $privateHash);
 
 echo "client request hash: $hash<br />";
-
 
 $content    = json_encode(array(
     'publicKey' => $publicHash,
@@ -53,35 +51,13 @@ $content    = json_encode(array(
     'session' => $sessionKey
 ));
 
-$ch = curl_init('http://127.0.0.1/backend/user/');
+$ch = curl_init('http://127.0.0.1/backend/user_appliance/');
 curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 curl_setopt($ch,CURLOPT_POSTFIELDS,$content);
 
 
 $output = curl_exec($ch);
-curl_close($ch);
-
-var_dump($output);
-
-*/
-//CURL GET
-
-
-// create curl resource
-$ch = curl_init();
-
-
-// set url
-curl_setopt($ch, CURLOPT_URL, "http://127.0.0.1/backend/appliances/3/en/" . $sessionKey);
-
-//return the transfer as a string
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-
-// $output contains the output string
-$output = curl_exec($ch);
-
-// close curl resource to free up system resources
 curl_close($ch);
 
 var_dump($output);
