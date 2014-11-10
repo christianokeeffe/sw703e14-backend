@@ -4,9 +4,15 @@ require_once "BaseController.php";
 
 class SettingsController extends BaseController {
 
-    function getSettingByPrefName($prefname)
+    function getSettings($userID)
     {
         $setting_model = new SettingsModel($this->db);
-        return $setting_model->getSettingByPrefname($prefname);
+        return $setting_model->getSettings($userID);
+    }
+
+    function setSetting($userID, $setting, $value)
+    {
+        $setting_model = new SettingsModel($this->db);
+        return $setting_model->setSetting($userID, $setting, $value);
     }
 }
