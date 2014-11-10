@@ -6,11 +6,13 @@ class Game {
     var $score;
     var $date;
     var $dishes;
-    var $laundry;
+    var $cleanClothes;
     var $hygiene;
+    var $wetClothes;
+    var $carBattery;
 
 
-    function __construct($saveID, $userID, $date, $savings, $score, $dishes, $laundry, $hygiene)
+    function __construct($saveID, $userID, $date, $savings, $score, $dishes, $cleanClothes, $hygiene, $wetClothes, $carBattery)
     {
         $this->saveID = $saveID;
         $this->userID = $userID;
@@ -18,8 +20,11 @@ class Game {
         $this->savings = $savings;
         $this->score = $score;
         $this->dishes = $dishes;
-        $this->laundry = $laundry;
+        $this->cleanClothes = $cleanClothes;
         $this->hygiene = $hygiene;
+        $this->wetClothes = $wetClothes;
+        $this->carBattery = $carBattery;
+
     }
 }
 
