@@ -23,9 +23,9 @@ class ApplianceModel {
         ON appliances.id=user_appliances.applianceID  AND user_appliances.userID = $userID
         INNER JOIN translation AS name
         ON name.id = appliances.name
-        INNER JOIN appliance_type
-        ON appliances.type = appliance_type.typeID
-		INNER JOIN (SELECT typeID, id, en, da FROM appliance_type INNER JOIN translation as name on name.id = appliance_type.typeID) AS selType ON selType.typeID = appliances.type");
+        INNER JOIN types
+        ON appliances.type = types.typeID
+		INNER JOIN (SELECT typeID, id, en, da FROM types INNER JOIN translation as name on name.id = types.typeID) AS selType ON selType.typeID = appliances.type");
 
             $appliances = array();
 
@@ -41,7 +41,7 @@ class ApplianceModel {
             FROM appliances
             INNER JOIN translation AS name
             ON name.id = appliances.name
-			INNER JOIN (SELECT typeID, id, en, da FROM appliance_type INNER JOIN translation as name on name.id = appliance_type.typeID) AS selType ON selType.typeID = appliances.type");
+			INNER JOIN (SELECT typeID, id, en, da FROM types INNER JOIN translation as name on name.id = types.typeID) AS selType ON selType.typeID = appliances.type");
 
             $appliances = array();
 
