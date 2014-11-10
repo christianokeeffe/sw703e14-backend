@@ -45,4 +45,9 @@ class MarketpriceModel {
 
         return $prices;
     }
+
+    function getAverage(){
+        $result = $this->db->exec("SELECT AVG(price) as average from market_price");
+        return $result;
+    }
 }
