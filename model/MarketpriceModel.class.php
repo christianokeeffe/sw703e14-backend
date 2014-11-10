@@ -39,7 +39,7 @@ class MarketpriceModel {
         $i = $fromtime;
         foreach($results as $result)
         {
-            $prices[count($prices)] = new Marketprice($result["id"], $i, $result["price"]);
+            $prices[count($prices)] = new Marketprice($result["id"], $i, $result["price"], $result["solar_price_per_unit"]);
             $i += 3600;
         }
 
