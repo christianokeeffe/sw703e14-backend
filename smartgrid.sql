@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `products` (
 --
 
 INSERT INTO `products` (`id`,`name`, `price`, `description`, `watt`, `type`) VALUES
-(1,57,50000,58,2000,`9`);
+(1,57,50000,58,2000,9);
 --
 -- Struktur-dump for tabellen `api_keys`
 --
@@ -144,7 +144,7 @@ INSERT INTO `types` (`typeID`, `type`) VALUES
 (5, 5),
 (6, 6),
 (7, 7),
-(8, 36)
+(8, 36),
 (9, 56);
 
 
@@ -279,7 +279,7 @@ INSERT INTO `translation` (`id`, `en`, `da`) VALUES
 (54, 'Electrolux UltraSilencer Green støvsuger', 'Electrolux UltraSilencer Green støvsuger'),
 (55, 'Philips PerformerExpert støvsuger FC8721', 'Philips PerformerExpert støvsuger FC8721'),
 (56, 'Solar Panel', 'Solcelle'),
-(57, 'Solar Sucker 3000','Sol Suger')
+(57, 'Solar Sucker 3000','Sol Suger'),
 (58, 'Small solarpanel','Lille solcelle');
 
 -- --------------------------------------------------------
