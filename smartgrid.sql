@@ -23,6 +23,37 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Struktur-dump for tabellen `user_products`
+--
+CREATE TABLE IF NOT EXISTS `user_products` (
+  `userID` int(11) NOT NULL,
+  `productID` int(11) NOT NULL,
+  PRIMARY KEY (`userID`,`productID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ---------------------------------------------------------
+
+--
+-- Struktur-dump for tabellen`products`
+--
+CREATE TABLE IF NOT EXISTS `products` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` int(11) NOT NULL,
+  `price` int(11) NOT NULL,
+  `description` int(11) DEFAULT NULL,
+  `watt` int(11) NOT NULL,
+  `type` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+-- ---------------------------------------------------------
+--
+-- Data dump for tabellen `products`
+--
+
+INSERT INTO `products` (`id`,`name`, `price`, `description`, `watt`, `type`) VALUES
+(1,57,50000,58,2000,`9`);
+--
 -- Struktur-dump for tabellen `api_keys`
 --
 
@@ -31,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `api_keys` (
   `public` varchar(65) NOT NULL,
   `private` varchar(65) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Data dump for tabellen `api_keys`
@@ -55,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `appliances` (
   `type` int(11) NOT NULL,
   `passive` BOOLEAN NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Data dump for tabellen `appliances`
@@ -95,17 +126,17 @@ INSERT INTO `appliances` (`id`, `name`, `price`, `energyLabel`, `energyConsumpti
 -- Struktur-dump for tabellen `appliance_type`
 --
 
-CREATE TABLE IF NOT EXISTS `appliance_type` (
+CREATE TABLE IF NOT EXISTS `types` (
   `typeID` int(11) NOT NULL AUTO_INCREMENT,
   `type` int(11) DEFAULT NULL,
   PRIMARY KEY (`typeID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Data dump for tabellen `appliance_type`
 --
 
-INSERT INTO `appliance_type` (`typeID`, `type`) VALUES
+INSERT INTO `types` (`typeID`, `type`) VALUES
 (1, 1),
 (2, 2),
 (3, 3),
@@ -113,7 +144,9 @@ INSERT INTO `appliance_type` (`typeID`, `type`) VALUES
 (5, 5),
 (6, 6),
 (7, 7),
-(8, 36);
+(8, 36)
+(9, 56);
+
 
 -- --------------------------------------------------------
 
@@ -140,7 +173,7 @@ CREATE TABLE IF NOT EXISTS `graphdata` (
   `score` int(11) NOT NULL,
   `date` int(11) NOT NULL,
   PRIMARY KEY (`saveID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------
 
 --
@@ -183,7 +216,7 @@ CREATE TABLE IF NOT EXISTS `translation` (
   `en` text CHARACTER SET latin1 NOT NULL,
   `da` text CHARACTER SET latin1 NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Data dump for tabellen `translation`
@@ -244,7 +277,10 @@ INSERT INTO `translation` (`id`, `en`, `da`) VALUES
 (52, 'SMEG BLV2P-2', 'SMEG BLV2P-2'),
 (53, 'Hoover støvsuger TFV2016', 'Hoover støvsuger TFV2016'),
 (54, 'Electrolux UltraSilencer Green støvsuger', 'Electrolux UltraSilencer Green støvsuger'),
-(55, 'Philips PerformerExpert støvsuger FC8721', 'Philips PerformerExpert støvsuger FC8721');
+(55, 'Philips PerformerExpert støvsuger FC8721', 'Philips PerformerExpert støvsuger FC8721'),
+(56, 'Solar Panel', 'Solcelle'),
+(57, 'Solar Sucker 3000','Sol Suger')
+(58, 'Small solarpanel','Lille solcelle');
 
 -- --------------------------------------------------------
 
