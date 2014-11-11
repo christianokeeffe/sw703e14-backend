@@ -4,10 +4,8 @@ include_once "viewHelper.php";
 
 $productController = new ProductController($f3);
 
-$userID = $f3->get('PARAMS.userID');
 
-
-$data = $productController->getProduct($userID);
+$data = $productController->getAllProducts();
 
 if($data != null)
 {
