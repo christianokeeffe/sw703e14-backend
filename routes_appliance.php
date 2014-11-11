@@ -31,4 +31,12 @@ $f3->route('GET /appliances/@lang/@session',
         include "view/appliancesView.php";
     }
 );
+
+$f3->route('GET /appliancesType/@type/@lang/@session',
+    function($f3) {
+        $auth = new BaseController($f3);
+        $auth->beforerouteGET($f3);
+        include "view/appliancesView.php";
+    }
+);
 ?>

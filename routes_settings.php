@@ -1,19 +1,17 @@
 <?php
-$f3->route('GET /marketprice/@fromtime/@totime/@lang/@session',
+$f3->route('GET /settings/@userID/@lang/@session',
     function($f3) {
         $auth = new BaseController($f3);
         $auth->beforerouteGET($f3);
-        include "view/marketpriceRangeView.php";
+        include "view/settingsGetView.php";
     }
 );
-?>
 
-<?php
-$f3->route('GET /averageprice/@lang/@session',
+$f3->route('POST /setting/@lang/@session',
     function($f3) {
         $auth = new BaseController($f3);
         $auth->beforerouteGET($f3);
-        include "view/marketpriceAverage.php";
+        include "view/settingSetView.php";
     }
 );
 ?>

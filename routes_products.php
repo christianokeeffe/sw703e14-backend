@@ -1,17 +1,17 @@
 <?php
-$f3->route('PUT /gamedata',
+$f3->route('PUT /product',
     function($f3) {
         $auth = new BaseController($f3);
         $auth->beforeroutePOST($f3);
-        include "view/gamedataInsertView.php";
+        include "view/productInsertView.php";
     }
 );
 
-$f3->route('GET /gamedata/@userID/@lang/@session',
+$f3->route('GET /product/@userID/@lang/@session',
     function($f3) {
         $auth = new BaseController($f3);
         $auth->beforerouteGET($f3);
-        include "view/gamedataGetView.php";
+        include "view/productGetView.php";
     }
 );
 

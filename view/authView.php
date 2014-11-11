@@ -23,6 +23,6 @@ if($authController->auth($f3->get('BODY'), false) == 1)
 }
 else
 {
-    echo prepareResponse("401", null);
+    echo prepareResponse("401", $f3->get('BODY'));
 }
 ?>

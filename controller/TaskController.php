@@ -9,4 +9,10 @@ class TaskController extends BaseController {
         $task_model = new TaskModel($this->db);
         return $task_model->getTasksByApplianceId($id,$lang);
     }
+
+    function getTasks($lang = 'en')
+    {
+        $task_model = new TaskModel($this->db);
+        return $task_model->getTasks($lang);
+    }
 }

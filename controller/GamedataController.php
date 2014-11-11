@@ -4,18 +4,17 @@ require_once "BaseController.php";
 
 class GamedataController extends BaseController {
 
-	function getUserByID($userID)
+	function getGamedata($userID)
     {
         $gamedataModel = new GamedataModel($this->db);
-        return $gamedataModel->getUserByID($userID);
+        return $gamedataModel->getGamedata($userID);
     }
 	
-    function insertGame($game)
+    function updateGamedata($game)
     {
         $gamedataModel = new gamedataModel($this->db);
-
-        return $gamedataModel->insertGame($game);
+        return $gamedataModel->updateGamedata($game);
         
-    } 
+    }
 	
 }

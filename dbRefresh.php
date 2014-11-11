@@ -38,13 +38,25 @@ if(!$result = $mysqli->query($sql)){
 
 while($row = $result->fetch_assoc()){
     $table_name = $row["TABLE_NAME"];
-    $mysqli->query("DROP TABLE " . $table_name);
-    echo "dropped " . $table_name . "<br />";
+    $drop = true;
+    if(isset($_GET["type"]))
+    {
+        if($_GET["type"] != "full")
+        {
+            $drop = !($table_name == "market_price");
+        }
+    }
+    if($drop)
+    {
+        $mysqli->query("DROP TABLE " . $table_name);
+        echo "dropped " . $table_name . "<br />";
+    }
 }
 
 
 
 $qrr = "";
+$solarprices = array();
 if(isset($_GET["type"]))
 {
 	if($_GET["type"] == "full")
@@ -61,7 +73,7 @@ if(isset($_GET["type"]))
         $arraySize=sizeof($csv);
         $qrr = "INSERT INTO " . $table_name . " (`time`, `price`) VALUES ";
         $first = true;
-        $prev = 100;
+        $prev = 1;
         for($i=2; $i<$arraySize; $i++)
         {
             if($first)
@@ -79,7 +91,7 @@ if(isset($_GET["type"]))
             }
             else
             {
-                $val = str_replace(",", "", $csv[$i][2]);
+                $val = str_replace(",", "", $csv[$i][2])/1000*10;
                 $prev = $val;
             }
 
@@ -98,7 +110,25 @@ if(isset($_GET["type"]))
             }*/
         }
         $qrr = $qrr . ";";
-        echo "Imported prices";
+
+        // Set path to CSV file
+        $csvFile = 'SolarData.csv';
+
+        //call the csv reading function
+        $csv = readCSV($csvFile);
+   
+
+        $k = -0.025;
+        $t0 = 25;
+        //Loop to insert to DB
+        $arraySize=sizeof($csv);
+        for($i=1; $i<$arraySize; $i++)
+        {
+            $energy = (($csv[$i][6]/1000)*(1+$k*($csv[$i][7]-$t0)))/1000;
+            $time = strtotime($csv[$i][0]."-".$csv[$i][1]."-".$csv[$i][2]." ".$csv[$i][3].":00");
+            //echo "UPDATE " . $table_name . " SET " . $table_name . ".solar_price_per_unit = " . $table_name . ".price*$energy  WHERE time = $time;";
+            $solarprices[$i] = "UPDATE " . $table_name . " SET " . $table_name . ".solar_price_per_unit = " . $table_name . ".price*$energy  WHERE time = $time;";
+        }
         //$mysqli->query($qrr);
 
 	}
@@ -109,6 +139,51 @@ echo "inserting file";
 $commands = file_get_contents($location) . $qrr;
 
 $mysqli->multi_query($commands);
+if ($mysqli->errno) { 
+   echo "Stopped while retrieving result : ".$mysqli->error."</br>"; die();
+}
+while($mysqli->more_results())
+{
+    $mysqli->next_result();
+    if($res = $mysqli->store_result()) // added closing bracket
+    {
+        $res->free(); 
+    }
+    if ($mysqli->errno) { 
+
+    echo "Stopped while retrieving result : ".$mysqli->error."</br>";
+    die();
+    }
+}
+
+
+$qrr = "";
+$arraySize=sizeof($solarprices);
+for($i=1; $i<$arraySize; $i++)
+{
+    $qrr .= $solarprices[$i];
+    if(($i%1000 == 0 || $i == $arraySize -1) && $i != 0)
+    {
+        $mysqli->multi_query($qrr);
+        while($mysqli->more_results())
+        {
+            $mysqli->next_result();
+            if($res = $mysqli->store_result()) // added closing bracket
+            {
+                $res->free(); 
+            }
+            if ($mysqli->errno) { 
+
+            echo "Stopped while $qrr retrieving result : ".$mysqli->error."</br>"; 
+            }
+        }
+        if ($mysqli->errno) { 
+
+            echo "Stopped while $qrr retrieving result : ".$mysqli->error."</br>"; 
+        }
+        $qrr = "";
+    }
+}
 
 $mysqli->close();
 ini_set('max_execution_time', 30); //300 seconds = 5 minutes

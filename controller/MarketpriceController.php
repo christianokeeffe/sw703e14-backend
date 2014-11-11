@@ -9,5 +9,10 @@ class MarketpriceController extends BaseController {
         $marketpriceModel = new MarketpriceModel($this->db);
         return $marketpriceModel->getMarketPriceRange($fromtime, $totime);
     }
+
+    function getMarketPriceAverage(){
+    	$marketpriceModel = new MarketpriceModel($this->db);
+    	return $marketpriceModel->getAverage();
+    }
 	
 }
