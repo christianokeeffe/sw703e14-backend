@@ -17,9 +17,9 @@ ini_set('max_execution_time', 3000); //300 seconds = 5 minutes
 $location = "smartgrid.sql";
 
 $dbhost = "localhost";
-$dbuser = "okeeffed_sg_user";
-$dbpass = "QAZ^W.AZ;@8W";
-$dbname = "okeeffed_smartgrid";
+$dbuser = "smartuser";
+$dbpass = "1234";
+$dbname = "smartgrid";
 
 $mysqli = new mysqli($dbhost,$dbuser,$dbpass,$dbname);
 
