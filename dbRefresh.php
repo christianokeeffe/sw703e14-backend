@@ -39,12 +39,17 @@ if(!$result = $mysqli->query($sql)){
 while($row = $result->fetch_assoc()){
     $table_name = $row["TABLE_NAME"];
     $drop = true;
+
     if(isset($_GET["type"]))
     {
         if($_GET["type"] != "full")
         {
             $drop = !($table_name == "market_price");
         }
+    }
+    else
+    {
+        $drop = !($table_name == "market_price");
     }
     if($drop)
     {
