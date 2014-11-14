@@ -39,12 +39,17 @@ if(!$result = $mysqli->query($sql)){
 while($row = $result->fetch_assoc()){
     $table_name = $row["TABLE_NAME"];
     $drop = true;
+
     if(isset($_GET["type"]))
     {
         if($_GET["type"] != "full")
         {
             $drop = !($table_name == "market_price");
         }
+    }
+    else
+    {
+        $drop = !($table_name == "market_price");
     }
     if($drop)
     {
@@ -124,7 +129,7 @@ if(isset($_GET["type"]))
         $arraySize=sizeof($csv);
         for($i=1; $i<$arraySize; $i++)
         {
-            $energy = (($csv[$i][6]/1000)*(1+$k*($csv[$i][7]-$t0)))/1000;
+            $energy = ((($csv[$i][6]/1000)*(1+$k*($csv[$i][7]-$t0)))/1000)/10;
             $time = strtotime($csv[$i][0]."-".$csv[$i][1]."-".$csv[$i][2]." ".$csv[$i][3].":00");
             //echo "UPDATE " . $table_name . " SET " . $table_name . ".solar_price_per_unit = " . $table_name . ".price*$energy  WHERE time = $time;";
             $solarprices[$i] = "UPDATE " . $table_name . " SET " . $table_name . ".solar_price_per_unit = " . $table_name . ".price*$energy  WHERE time = $time;";
