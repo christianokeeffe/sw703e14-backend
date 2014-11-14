@@ -3,14 +3,6 @@ require_once("HelperFunctions.php");
 
 class TestOfGraphDataRoutes extends HelperFunctions {
 
-    function testGetGraphData() {
-        $response = parent::callGet("/graphdata/1/");
-
-        $this->assertTrue($response->status == 200);
-        $this->assertTrue(count($response->data) > 0);
-    }
-
-
     function testPutGraphData() {
 
         require_once "../model/metadata/Graph.class.php";
@@ -29,5 +21,11 @@ class TestOfGraphDataRoutes extends HelperFunctions {
         $this->assertTrue($response->data->date == $time);
     }
 
+    function testGetGraphData() {
+        $response = parent::callGet("/graphdata/1/");
+
+        $this->assertTrue($response->status == 200);
+        $this->assertTrue(count($response->data) > 0);
+    }
 }
 ?>

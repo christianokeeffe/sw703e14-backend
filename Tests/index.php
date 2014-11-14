@@ -20,3 +20,4 @@ class AllTests extends TestSuite {
     }
 }
 ?>
+<a href="../dbRefresh.php">Run dbRefresh.php</a>
