@@ -52,7 +52,12 @@ CREATE TABLE IF NOT EXISTS `products` (
 --
 
 INSERT INTO `products` (`id`,`name`, `price`, `description`, `watt`, `type`) VALUES
-(1,57,50000,58,2000,9);
+  (1, 56, 0, 62, 0, 9),
+  (2, 57, 0, 63, 0, 10),
+  (3, 58, 0, 64, 0, 11),
+  (4, 59, 50000, 62, 2000, 9),
+  (5, 60, 50000, 63, 2000, 10),
+  (6, 61, 1, 64, 50000000, 11);
 --
 -- Struktur-dump for tabellen `api_keys`
 --
@@ -145,7 +150,9 @@ INSERT INTO `types` (`typeID`, `type`) VALUES
 (6, 6),
 (7, 7),
 (8, 36),
-(9, 56);
+(9, 56),
+(10, 57),
+(11, 58);
 
 
 -- --------------------------------------------------------
@@ -278,9 +285,16 @@ INSERT INTO `translation` (`id`, `en`, `da`) VALUES
 (53, 'Hoover støvsuger TFV2016', 'Hoover støvsuger TFV2016'),
 (54, 'Electrolux UltraSilencer Green støvsuger', 'Electrolux UltraSilencer Green støvsuger'),
 (55, 'Philips PerformerExpert støvsuger FC8721', 'Philips PerformerExpert støvsuger FC8721'),
-(56, 'Solar Panel', 'Solcelle'),
-(57, 'Solar Sucker 3000','Sol Suger'),
-(58, 'Small solarpanel','Lille solcelle');
+(56,  'Solar Panel', 'Solcelle'),
+(57, 'Geothermal Heat', 'Jordvarmeanlæg'),
+(58, 'Micro CHP Mikro', 'Kraftvarmværk'),
+(59, 'Solar Sucker 2000Watt', 'Solcelle 2000Watt'),
+(60, 'Earth Warmer 2000Watt', 'Jord Varmer 2000Watt'),
+(61, 'Nuclear Power Plant 50.000.000Watt', 'Atom Kraftværk 50.000.000Watt'),
+(62, 'A small Solar Panel', 'En lille Solcelle'),
+(63, 'Geothermal heat is used to heat the house', 'Jordevarme bliver brugt til at opvarme huset'),
+(64, 'A small mikro chp', 'Et lille kraftvarmeværk');
+
 
 -- --------------------------------------------------------
 

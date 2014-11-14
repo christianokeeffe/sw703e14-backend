@@ -1,4 +1,5 @@
 <?php
+/*
 $f3->route('PUT /products',
     function($f3) {
         $auth = new BaseController($f3);
@@ -14,7 +15,7 @@ $f3->route('GET /products/@userID/@lang/@session',
         include "view/productGetView.php";
     }
 );
-
+*/
 $f3->route('GET /products/@lang/@session',
     function($f3) {
         $auth = new BaseController($f3);

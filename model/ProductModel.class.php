@@ -8,7 +8,7 @@ class ProductModel {
     {
         $this->db = $db;
     }
-	
+/*	
     function getProduct($id, $lang)
     {
         $result = $this->db->exec("SELECT $lang FROM products NATURAL JOIN translation WHERE id =  $id");
@@ -35,7 +35,7 @@ class ProductModel {
             }
             return $products;
         }
-
+*/
         function getAllProducts($lang){
             $results = $this->db->exec("SELECT products.id, name.$lang AS name, products.price, description.$lang as description, products.watt, products.type AS type
             FROM products
@@ -45,7 +45,7 @@ class ProductModel {
             ON type.typeID = products.type
             INNER JOIN translation AS description
             ON description.id = products.description
-            ");
+            ORDER BY type DESC");
 
             $products = array();
 
@@ -55,7 +55,7 @@ class ProductModel {
             }
             return $products;
         }
-
+/*
         function getProductsByType($type,$lang){
             $allProducts  = $this->getAllProducts($lang);
 
@@ -68,5 +68,5 @@ class ProductModel {
                 }
             }
             return $products;
-        }
+        }*/
 }
