@@ -51,7 +51,7 @@ $content    = json_encode(array(
     'session' => $sessionKey
 ));
 
-$ch = curl_init('http://127.0.0.1/backend/user_appliance/');
+$ch = curl_init('http://127.0.0.1/backend/user_appliance');
 curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 curl_setopt($ch,CURLOPT_POSTFIELDS,$content);
