@@ -1,7 +1,7 @@
 <?php
 require_once("HelperFunctions.php");
 
-class TestOfApplianceController extends HelperFunctions {
+class TestOfApplianceRoutes extends HelperFunctions {
 
     function testGetAllAppliances() {
         $appliance = parent::callGet("/appliances/en/");
