@@ -7,11 +7,13 @@ $f3->route('GET /settings/@userID/@lang/@session',
     }
 );
 
-$f3->route('POST /setting/@lang/@session',
+/*
+$f3->route('POST /setting',
     function($f3) {
         $auth = new BaseController($f3);
-        $auth->beforerouteGET($f3);
+        $auth->beforeroutePOST($f3);
         include "view/settingSetView.php";
     }
 );
+*/
 ?>
