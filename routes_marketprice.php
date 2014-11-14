@@ -6,9 +6,7 @@ $f3->route('GET /marketprice/@fromtime/@totime/@lang/@session',
         include "view/marketpriceRangeView.php";
     }
 );
-?>
 
-<?php
 $f3->route('GET /averageprice/@lang/@session',
     function($f3) {
         $auth = new BaseController($f3);
