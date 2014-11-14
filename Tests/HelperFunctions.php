@@ -10,7 +10,6 @@ class HelperFunctions extends UnitTestCase {
 
     private function getSessionKey(){
 
-
         $request = json_encode(array(
             'language' => 'da'
         ));
@@ -69,6 +68,29 @@ class HelperFunctions extends UnitTestCase {
         $ch = curl_init($this->path . $path);
         curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+        curl_setopt($ch,CURLOPT_POSTFIELDS,$content);
+
+        $output = curl_exec($ch);
+
+        curl_close($ch);
+
+        return json_decode($output);
+    }
+
+    function callPost($path, $request)
+    {
+        $hash = hash_hmac('sha256', $request, $this->privateHash);
+
+        $content    = json_encode(array(
+            'publicKey' => $this->publicHash,
+            'request' => $request,
+            'requestHash' => $hash,
+            'session' => $this->getSessionKey()
+        ));
+
+        $ch = curl_init($this->path . $path);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($ch,CURLOPT_POSTFIELDS,$content);
 
         $output = curl_exec($ch);
