@@ -7,6 +7,7 @@ class ProductModel {
     function __construct($db)
     {
         $this->db = $db;
+
     }
 /*	
     function getProduct($id, $lang)
@@ -37,15 +38,17 @@ class ProductModel {
         }
 */
         function getAllProducts($lang){
-            $results = $this->db->exec("SELECT products.id, name.$lang AS name, products.price, description.$lang as description, products.watt, products.type AS type
+            $results = $this->db->exec("SELECT products.id, name.$lang AS name, products.price, description.$lang as description, products.watt, type.$lang AS type
             FROM products
             INNER JOIN translation AS name
             ON name.id = products.name
-            INNER JOIN (SELECT typeID, id, en, da FROM types INNER JOIN translation as name on name.id = types.typeID) AS type
-            ON type.typeID = products.type
+            INNER JOIN types AS typeID
+            ON typeID.typeID = products.type
+            INNER JOIN translation AS type
+            ON typeID.type = type.id
             INNER JOIN translation AS description
             ON description.id = products.description
-            ORDER BY type DESC");
+            ORDER BY type ASC");
 
             $products = array();
 

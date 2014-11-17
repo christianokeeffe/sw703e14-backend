@@ -15,7 +15,8 @@ class ApplianceModel {
             FROM appliances
             INNER JOIN translation AS name
             ON name.id = appliances.name
-			INNER JOIN (SELECT typeID, id, en, da FROM types INNER JOIN translation as name on name.id = types.typeID) AS selType ON selType.typeID = appliances.type WHERE appliances.id =  $id");
+			INNER JOIN (SELECT typeID, id, en, da FROM types INNER JOIN translation as name on name.id = types.typeID) AS selType
+            ON selType.typeID = appliances.type WHERE appliances.id =  $id");
 
         return new Appliance($result[0]["id"], $result[0]["name"], $result[0]["price"], $result[0]["energyLabel"], $result[0]["energyConsumption"], $result[0]["type"], $result[0]["passive"], $result[0][$lang]);
     }
