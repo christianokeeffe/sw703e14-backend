@@ -9,13 +9,13 @@ class ProductController extends BaseController {
         $product = new productModel($this->db);
         return $product->getproduct($userID, $lang);
     }
-
-    function getProducts($userID, $lang = 'en')
+*/
+    function getUserProducts($userID, $lang = 'en')
     {
         $product = new productModel($this->db);
-        return $product->getproducts($userID,$lang);
+        return $product->getUserProducts($userID,$lang);
     }
-*/
+
     function getAllProducts($lang = 'en')
     {
         $product = new productModel($this->db);
