@@ -31,6 +31,7 @@ include_once "routes_graphdata.php";
 include_once "routes_settings.php";
 include_once "routes_user_appliance.php";
 include_once "routes_products.php";
+include_once "routes_user_product.php";
 
 $f3->run();
 ?>

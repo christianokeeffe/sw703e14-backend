@@ -52,12 +52,9 @@ CREATE TABLE IF NOT EXISTS `products` (
 --
 
 INSERT INTO `products` (`id`,`name`, `price`, `description`, `watt`, `type`) VALUES
-  (1, 56, 0, 62, 0, 9),
-  (2, 57, 0, 63, 0, 10),
-  (3, 58, 0, 64, 0, 11),
-  (4, 59, 50000, 62, 2000, 9),
-  (5, 60, 50000, 63, 2000, 10),
-  (6, 61, 1, 64, 50000000, 11);
+  (1, 59, 50000, 62, 2000, 9),
+  (2, 60, 50000, 63, 2000, 10),
+  (3, 61, 1, 64, 50000000, 11);
 --
 -- Struktur-dump for tabellen `api_keys`
 --

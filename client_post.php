@@ -16,7 +16,7 @@ $content    = json_encode(array(
     'requestHash' => $hash
 ));
 
-$ch = curl_init('http://127.0.0.1/backend/auth');
+$ch = curl_init('http://127.0.0.1/sw703e14-backend/auth');
 curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
 curl_setopt($ch,CURLOPT_POSTFIELDS,$content);
 
@@ -32,12 +32,13 @@ $sessionKey = $session->session;
 //---------------------------------------------------
 
 
-require_once "model/metadata/UserAppliance.class.php";
+require_once "model/metadata/UserProduct.class.php";
 
-$user_appliance = new UserAppliance(3, [1, 2, 3, 4, 10, 6, 7, 8]);
+$user_product = new UserProduct(5, 10);
 
 $request = json_encode(array(
-    'user_appliance' => $user_appliance
+    'user_product' => $user_product,
+    'replaceID' => 9
 ));
 
 $hash = hash_hmac('sha256', $request, $privateHash);
@@ -51,7 +52,7 @@ $content    = json_encode(array(
     'session' => $sessionKey
 ));
 
-$ch = curl_init('http://127.0.0.1/backend/user_appliance');
+$ch = curl_init('http://127.0.0.1/sw703e14-backend/userproduct');
 curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 curl_setopt($ch,CURLOPT_POSTFIELDS,$content);
