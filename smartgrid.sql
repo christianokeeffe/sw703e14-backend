@@ -193,11 +193,11 @@ CREATE TABLE IF NOT EXISTS `gamedata` (
   `date` int(11) NOT NULL,
   `savings` int(11) NOT NULL,
   `score` int(11) NOT NULL,
-  `dishes` float NOT NULL,
-  `cleanClothes` float NOT NULL,
-  `hygiene` float NOT NULL,
-  `wetClothes` float NOT NULL,
-  `carBattery` float NOT NULL,
+  `dishes` float(11) NOT NULL,
+  `cleanClothes` float(11) NOT NULL,
+  `hygiene` float(11) NOT NULL,
+  `wetClothes` float(11) NOT NULL,
+  `carBattery` float(11) NOT NULL,
   PRIMARY KEY (`saveID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 -- --------------------------------------------------------
