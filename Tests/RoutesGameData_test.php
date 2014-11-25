@@ -10,13 +10,12 @@ class TestOfGameDataRoutes extends HelperFunctions {
         $this->assertTrue(count($appliance->data) > 0);
     }
 
+    //latex start unitTestPutGameData
     function testPutGameData() {
-
         require_once "../model/metadata/Game.class.php";
 
         $time = time();
         $game = new Game(0, 1, $time, 100, 500, 50, 50, 50, 50, 50);
-
         $request = json_encode(array(
             'game' => $game
         ));
@@ -27,5 +26,6 @@ class TestOfGameDataRoutes extends HelperFunctions {
         $this->assertTrue(count($response->data) > 0);
         $this->assertTrue($response->data->date == $time);
     }
+    //latex end
 }
 ?>

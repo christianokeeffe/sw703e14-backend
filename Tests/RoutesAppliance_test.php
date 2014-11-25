@@ -10,12 +10,14 @@ class TestOfApplianceRoutes extends HelperFunctions {
         $this->assertTrue(count($appliance->data) > 0);
     }
 
+    //latex start unitTestGetAppliance
     function testGetAnAppliance() {
         $appliance = parent::callGet("/appliance/1/");
 
         $this->assertTrue($appliance->status == 200);
         $this->assertTrue(count($appliance->data) > 0);
     }
+    //latex end
 
     function testGetAnApplianceWithLang() {
         $appliance = parent::callGet("/appliance/1/da/");
