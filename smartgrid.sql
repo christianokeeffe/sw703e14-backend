@@ -238,7 +238,7 @@ INSERT INTO `translation` (`id`, `en`, `da`) VALUES
 (9, 'ScrapCar', 'SkrotBil'),
 (10, 'CrapWash', 'Skod Opvaskemaskine'),
 (11, 'BadTumbler', 'Dårlig Tørretumbler'),
-(12, 'BarelyAnOwen3000', 'NæstenEtKomfur3000'),
+(12, 'BarelyAStove3000', 'NæstenEtKomfur3000'),
 (13, 'BrokenDishwasher', 'Ødelagt Opvaskemaskine'),
 (14, 'HandVacummCleaner', 'Håndstøvsuger'),
 (15, 'Charge', 'Oplade'),
