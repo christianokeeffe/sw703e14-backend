@@ -31,7 +31,7 @@ class ProductModel {
         }
 
         function getAllProducts($lang){
-            $results = $this->db->exec("SELECT products.id, name.$lang AS name, products.price, description.$lang as description, products.watt, type.$lang AS type
+            $results = $this->db->exec("SELECT products.id, name.$lang AS name, products.price, description.$lang as description, products.watt, type.$lang AS type, products.type as typeID
             FROM products
             INNER JOIN translation AS name
             ON name.id = products.name
@@ -47,7 +47,7 @@ class ProductModel {
 
             foreach($results as $result)
             {
-                $products[count($products)] = new Product($result["id"], $result["name"], $result["price"], $result["description"], $result["watt"], $result["type"]);
+                $products[count($products)] = new Product($result["id"], $result["name"], $result["price"], $result["description"], $result["watt"], $result["type"], $result["typeID"]);
             }
             return $products;
         }
