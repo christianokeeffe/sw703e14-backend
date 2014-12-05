@@ -8,7 +8,7 @@ $json_decoded = json_decode($f3->get('BODY'), true);
 
 $user = json_decode($json_decoded['request']);
 
-$data = $userController->insertUser($user->user);
+$data = $userController->insertUser($user);
 
 if($data != null)
 {
