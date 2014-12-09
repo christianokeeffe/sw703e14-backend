@@ -26,11 +26,10 @@ class TestOfUserRoutes extends HelperFunctions {
 
         $user = new User(0, $this->generateRandomString(), $this->generateRandomString(), $this->generateRandomString(), $this->generateRandomString(), $this->generateRandomString() . "@mailawda.dk");
 
-        $request = json_encode(array(
-            'user' => $user
-        ));
+        $request = json_encode($user);
 
         $response = parent::callPut("/user", $request);
+
 
         $this->assertTrue($response->status == 200);
         $this->assertTrue(count($response->data) > 0);
