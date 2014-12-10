@@ -285,13 +285,13 @@ INSERT INTO `translation` (`id`, `en`, `da`) VALUES
 (55, 'Philips PerformerExpert FC8721', 'Philips PerformerExpert FC8721'),
 (56,  'Solar Panel', 'Solcelle'),
 (57, 'Geothermal Heat', 'Jordvarmeanlæg'),
-(58, 'Micro CHP Mikro', 'Kraftvarmværk'),
+(58, 'Micro CHP', 'Kraftvarmværk'),
 (59, 'Solar Sucker 2000Watt', 'Solcelle 2000Watt'),
 (60, 'Earth Warmer 2000Watt', 'Jord Varmer 2000Watt'),
 (61, 'Nuclear Power Plant 50.000.000Watt', 'Atom Kraftværk 50.000.000Watt'),
 (62, 'A small Solar Panel', 'En lille Solcelle'),
 (63, 'Geothermal heat is used to heat the house', 'Jordevarme bliver brugt til at opvarme huset'),
-(64, 'A small mikro chp', 'Et lille kraftvarmeværk');
+(64, 'A small micro CHP', 'Et lille kraftvarmeværk');
 
 -- --------------------------------------------------------
 
