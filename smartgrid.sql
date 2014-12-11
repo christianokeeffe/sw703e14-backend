@@ -1,4 +1,4 @@
-  -- phpMyAdmin SQL Dump
+-- phpMyAdmin SQL Dump
 -- version 4.1.12
 -- http://www.phpmyadmin.net
 --
@@ -52,7 +52,9 @@ CREATE TABLE IF NOT EXISTS `products` (
 --
 
 INSERT INTO `products` (`id`,`name`, `price`, `description`, `watt`, `type`) VALUES
-(1,57,50000,58,2000,9);
+  (1, 59, 50000, 62, 2000, 9),
+  (2, 60, 50000, 63, 2000, 10),
+  (3, 61, 1, 64, 50000000, 11);
 --
 -- Struktur-dump for tabellen `api_keys`
 --
@@ -145,7 +147,9 @@ INSERT INTO `types` (`typeID`, `type`) VALUES
 (6, 6),
 (7, 7),
 (8, 36),
-(9, 56);
+(9, 56),
+(10, 57),
+(11, 58);
 
 
 -- --------------------------------------------------------
@@ -186,11 +190,11 @@ CREATE TABLE IF NOT EXISTS `gamedata` (
   `date` int(11) NOT NULL,
   `savings` int(11) NOT NULL,
   `score` int(11) NOT NULL,
-  `dishes` float NOT NULL,
-  `cleanClothes` float NOT NULL,
-  `hygiene` float NOT NULL,
-  `wetClothes` float NOT NULL,
-  `carBattery` float NOT NULL,
+  `dishes` float(11) NOT NULL,
+  `cleanClothes` float(11) NOT NULL,
+  `hygiene` float(11) NOT NULL,
+  `wetClothes` float(11) NOT NULL,
+  `carBattery` float(11) NOT NULL,
   PRIMARY KEY (`saveID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 -- --------------------------------------------------------
@@ -232,11 +236,11 @@ INSERT INTO `translation` (`id`, `en`, `da`) VALUES
 (7, 'Vacuum cleaner', 'Støvsuger'),
 (8, 'Cool&freeze1000', 'Køl&Frys1000'),
 (9, 'ScrapCar', 'SkrotBil'),
-(10, 'CrapWash', 'SkrotVasker'),
-(11, 'Slapemdry', 'KlapTørre'),
-(12, 'BarelyBaker3000', 'NæstenBager3000'),
-(13, 'DirtyDisher', 'SnavsTilOpvasker'),
-(14, 'DustBlower', 'Støvpuster'),
+(10, 'CrapWash', 'Skod Opvaskemaskine'),
+(11, 'BadTumbler', 'Dårlig Tørretumbler'),
+(12, 'BarelyAStove3000', 'NæstenEtKomfur3000'),
+(13, 'BrokenDishwasher', 'Ødelagt Opvaskemaskine'),
+(14, 'HandVacummCleaner', 'Håndstøvsuger'),
 (15, 'Charge', 'Oplade'),
 (16, 'Wash clothes', 'Vask tøj'),
 (17, 'Dry', 'Tør'),
@@ -268,19 +272,26 @@ INSERT INTO `translation` (`id`, `en`, `da`) VALUES
 (43, 'Nissan Leaf', 'Nissan Leaf'),
 (44, 'Matsui M510WM13E', 'Matsui M510WM13E'),
 (45, 'Electrolux Inspiration EWP1672TDW', 'Electrolux Inspiration EWP1672TDW'),
-(46, 'Gorenje vaskemaskine W87443', 'Gorenje vaskemaskine W87443'),
-(47, 'Hotpoint tørretumbler TVM 70C P/Z', 'Hotpoint tørretumbler TVM 70C P/Z'),
-(48, 'Beko tørretumbler DPU7340X', 'Beko tørretumbler DPU7340X'),
-(49, 'Gorenje tørretumbler D88565N', 'Gorenje tørretumbler D88565N'),
+(46, 'Gorenje W87443', 'Gorenje W87443'),
+(47, 'Hotpoint TVM 70C P/Z', 'Hotpoint TVM 70C P/Z'),
+(48, 'Beko DPU7340X', 'Beko DPU7340X'),
+(49, 'Gorenje D88565N', 'Gorenje D88565N'),
 (50, 'Scandomestic SFO 3500', 'Scandomestic SFO 3500'),
 (51, 'Candy CDPM 65720', 'Candy CDPM 65720'),
 (52, 'SMEG BLV2P-2', 'SMEG BLV2P-2'),
-(53, 'Hoover støvsuger TFV2016', 'Hoover støvsuger TFV2016'),
-(54, 'Electrolux UltraSilencer Green støvsuger', 'Electrolux UltraSilencer Green støvsuger'),
-(55, 'Philips PerformerExpert støvsuger FC8721', 'Philips PerformerExpert støvsuger FC8721'),
-(56, 'Solar Panel', 'Solcelle'),
-(57, 'Solar Sucker 3000','Sol Suger'),
-(58, 'Small solarpanel','Lille solcelle');
+
+(53, 'Hoover TFV2016', 'Hoover TFV2016'),
+(54, 'Electrolux UltraSilencer Green', 'Electrolux UltraSilencer Green'),
+(55, 'Philips PerformerExpert FC8721', 'Philips PerformerExpert FC8721'),
+(56,  'Solar Panel', 'Solcelle'),
+(57, 'Geothermal Heat', 'Jordvarmeanlæg'),
+(58, 'Micro CHP', 'Kraftvarmværk'),
+(59, 'Solar Sucker 2000Watt', 'Solcelle 2000Watt'),
+(60, 'Earth Warmer 2000Watt', 'Jord Varmer 2000Watt'),
+(61, 'Nuclear Power Plant 50.000.000Watt', 'Atom Kraftværk 50.000.000Watt'),
+(62, 'A small Solar Panel', 'En lille Solcelle'),
+(63, 'Geothermal heat is used to heat the house', 'Jordevarme bliver brugt til at opvarme huset'),
+(64, 'A small micro CHP', 'Et lille kraftvarmeværk');
 
 -- --------------------------------------------------------
 
@@ -378,10 +389,10 @@ CREATE TABLE IF NOT EXISTS `daily_task` (
 --
 
 INSERT INTO `daily_task` (`name`, `taskID`, `deadline`, `startTime`, `endTime`, `reward`, `penalty`) VALUES
-(25, 5, '5:00 - 10:00', 300, 600, 1000, -2000),
-(26, 6, '11:00 - 14:00', 660, 840, 1000, -2000),
-(27, 7, '17:00 - 21:00', 1020 , 1260, 1000, -2000),
-(28, 1, '6:00', 0 , 420, 1000, -2000);
+(25, 5, '5:00 - 10:00', 300, 600, 100, -200),
+(26, 6, '11:00 - 14:00', 660, 840, 100, -200),
+(27, 7, '17:00 - 21:00', 1020 , 1260, 100, -200),
+(28, 1, '6:00', 0 , 420, 100, -200);
 
 -- --------------------------------------------------------
 
@@ -405,10 +416,10 @@ CREATE TABLE IF NOT EXISTS `optional_task` (
 --
 
 INSERT INTO `optional_task` (`name`, `taskID`, `deadline`, `type`, `times`, `reward`) VALUES
-(29, 8, 33, 'd', 1, 500),
-(30, 10, 34, 'w', 1, 500),
-(31, 2, 35, 'w', 2, 500),
-(32, 9, 35, 'w', 2, 500);
+(29, 8, 33, 'd', 1, 50),
+(30, 10, 34, 'w', 1, 10),
+(31, 2, 35, 'w', 2, 10),
+(32, 9, 35, 'w', 2, 10);
 
 -- --------------------------------------------------------
 

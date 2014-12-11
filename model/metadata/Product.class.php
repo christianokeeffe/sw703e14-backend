@@ -7,7 +7,7 @@ class Product {
 	var $watt;
 	var $type;
 
-    function __construct($id, $name, $price, $description, $watt, $type)
+    function __construct($id, $name, $price, $description, $watt, $type, $typeID)
     {
         $this->id = $id;
         $this->name = $name;
@@ -15,6 +15,7 @@ class Product {
 		$this->description = $description;
         $this->watt = $watt;
 		$this->type = $type;
+        $this->typeID = $typeID;
     }
 }
 ?>

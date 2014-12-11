@@ -16,7 +16,7 @@ $content    = json_encode(array(
     'requestHash' => $hash
 ));
 
-$ch = curl_init('http://127.0.0.1/backend/auth');
+$ch = curl_init('http://127.0.0.1/sw703e14-backend/auth');
 curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
 curl_setopt($ch,CURLOPT_POSTFIELDS,$content);
 
@@ -32,14 +32,13 @@ $sessionKey = $session->session;
 //---------------------------------------------------
 
 
-require_once "model/metadata/Game.class.php";
+require_once "model/metadata/UserProduct.class.php";
 
-$game = new Game(0, 5, 1411380000, 1000, 300);
+$userProduct = new UserProduct(5, 9);
 
-
-$request = json_encode(array(
-    'game' => $game
-));
+        $request = json_encode(array(
+            'user_product' => $userProduct
+        ));
 
 $hash = hash_hmac('sha256', $request, $privateHash);
 
@@ -52,7 +51,7 @@ $content    = json_encode(array(
     'session' => $sessionKey
 ));
 
-$ch = curl_init('http://127.0.0.1/backend/gamedata/');
+$ch = curl_init('http://127.0.0.1/sw703e14-backend/userproduct/');
 curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
 curl_setopt($ch,CURLOPT_POSTFIELDS,$content);
