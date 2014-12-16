@@ -10,9 +10,10 @@ class Game {
     var $hygiene;
     var $wetClothes;
     var $carBattery;
+    var $billValue;
 
 
-    function __construct($saveID, $userID, $date, $savings, $score, $dishes, $cleanClothes, $hygiene, $wetClothes, $carBattery)
+    function __construct($saveID, $userID, $date, $savings, $score, $dishes, $cleanClothes, $hygiene, $wetClothes, $carBattery, $billValue)
     {
         $this->saveID = $saveID;
         $this->userID = $userID;
@@ -24,7 +25,7 @@ class Game {
         $this->hygiene = $hygiene;
         $this->wetClothes = $wetClothes;
         $this->carBattery = $carBattery;
-
+        $this->billValue = $billValue;
     }
 }
 
