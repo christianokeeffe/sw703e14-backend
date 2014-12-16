@@ -195,6 +195,7 @@ CREATE TABLE IF NOT EXISTS `gamedata` (
   `hygiene` float(11) NOT NULL,
   `wetClothes` float(11) NOT NULL,
   `carBattery` float(11) NOT NULL,
+  `billValue` float(11) NOT NULL,
   PRIMARY KEY (`saveID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 -- --------------------------------------------------------
@@ -202,13 +203,13 @@ CREATE TABLE IF NOT EXISTS `gamedata` (
 --
 -- Data dump for tabellen `gamedata`
 --
-INSERT INTO `gamedata` (`userID`,`date`, `savings`, `score`, `dishes`, `cleanClothes`, `hygiene`, `wetClothes`, `carBattery`) VALUES
-(1, 1409565600, 0, 0, 100, 100, 100, 0.1, 100),
-(2, 1409565600, 0, 0, 100, 100, 100, 0.1, 100),
-(3, 1409565600, 0, 0, 100, 100, 100, 0.1, 100),
-(4, 1409565600, 0, 0, 100, 100, 100, 0.1, 100),
-(5, 1409565600, 0, 0, 100, 100, 100, 0.1, 100),
-(6, 1409565600, 0, 0, 100, 100, 100, 0.1, 100);
+INSERT INTO `gamedata` (`userID`,`date`, `savings`, `score`, `dishes`, `cleanClothes`, `hygiene`, `wetClothes`, `carBattery`, `billValue`) VALUES
+(1, 1409565600, 0, 0, 100, 100, 100, 0.1, 100,0),
+(2, 1409565600, 0, 0, 100, 100, 100, 0.1, 100,0),
+(3, 1409565600, 0, 0, 100, 100, 100, 0.1, 100,0),
+(4, 1409565600, 0, 0, 100, 100, 100, 0.1, 100,0),
+(5, 1409565600, 0, 0, 100, 100, 100, 0.1, 100,0),
+(6, 1409565600, 0, 0, 100, 100, 100, 0.1, 100,0);
 -- -------------------------------------------------------
 
 --
